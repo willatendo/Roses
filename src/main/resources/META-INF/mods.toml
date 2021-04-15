@@ -1,0 +1,12 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="All rights reserved"
+
+[[mods]]
+modId="roses"
+version="1.0.0"
+displayName="Roses"
+authors="Willatendo"
+description='''
+Brings the past back!
+'''
