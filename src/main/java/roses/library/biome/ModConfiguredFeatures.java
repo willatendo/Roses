@@ -17,6 +17,9 @@ public class ModConfiguredFeatures
 	public static final BlockClusterFeatureConfig ROSE_CONFIG = (new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(ModRegistry.ROSE.defaultBlockState(), 2), SimpleBlockPlacer.INSTANCE)).tries(64).build();
 	public static final ConfiguredFeature<?, ?> ROSES = register("roses", Feature.FLOWER.configured(ROSE_CONFIG).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE).count(4));	
 	
+	public static final BlockClusterFeatureConfig CYAN_FLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(ModRegistry.CYAN_FLOWER.defaultBlockState(), 2), SimpleBlockPlacer.INSTANCE)).tries(64).build();
+	public static final ConfiguredFeature<?, ?> CYAN_FLOWERS = register("cyan_flowers", Feature.FLOWER.configured(ROSE_CONFIG).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE).count(4));	
+	
 	private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String id, ConfiguredFeature<FC, ?> configuredFeature) 
 	{
 		return Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, ModUtils.rL(id), configuredFeature);

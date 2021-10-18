@@ -12,14 +12,19 @@ public class BiomeGeneration
 	{
 		BiomeGenerationSettingsBuilder generation = event.getGeneration();
 		
-		if(RosesConfig.COMMON_CONFIG.enableRoses.get())
+		if(RosesConfig.COMMON_CONFIG.enableRosesGeneration.get())
 		{
-			if(RosesConfig.COMMON_CONFIG.enableRosesGeneration.get())
+			if(BiomeConfig.roseBiomes.contains(event.getName().toString()))
 			{
-				if(BiomeConfig.roseBiomes.contains(event.getName().toString()))
-				{
-					generation.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.ROSES);
-				}
+				generation.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.ROSES);
+			}
+		}
+		
+		if(RosesConfig.COMMON_CONFIG.enableCyanFlowersGeneration.get())
+		{
+			if(BiomeConfig.cyanFlowerBiomes.contains(event.getName().toString()))
+			{
+				generation.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.CYAN_FLOWERS);
 			}
 		}
 	}

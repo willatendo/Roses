@@ -13,10 +13,12 @@ import roses.content.config.RosesConfig;
 public class BiomeConfig 
 {
 	public static List<? extends String> roseBiomes;
+	public static List<? extends String> cyanFlowerBiomes;
 	
 	@SubscribeEvent
 	public static void onModConfigEvent(final ModConfig.ModConfigEvent configEvent) 
 	{
 		roseBiomes = RosesConfig.COMMON_CONFIG.roseBiomes.get();
+		cyanFlowerBiomes = RosesConfig.COMMON_CONFIG.cyanFlowerBiomes.get();
     }
 }
