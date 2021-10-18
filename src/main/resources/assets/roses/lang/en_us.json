@@ -1,4 +1,6 @@
 {
 	"block.roses.rose": "Rose",
-	"block.roses.cyan_flower": "Cyan Flower"
+	"block.roses.cyan_flower": "Cyan Flower",
+	"advancements.roses.legacy.root.title": "Legacy Player",
+	"advancements.roses.legacy.root.description": "You've got nostalgia for the rose."
 }
