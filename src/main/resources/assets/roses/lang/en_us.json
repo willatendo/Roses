@@ -1,6 +1,22 @@
 {
 	"block.roses.rose": "Rose",
 	"block.roses.cyan_flower": "Cyan Flower",
+	"block.roses.capri_cloth": "Capri Cloth",
+	"block.roses.chartruese_cloth": "Chartruese Cloth",
+	"block.roses.cyan_cloth": "Cyan Cloth",
+	"block.roses.dark_gray_cloth": "Dark Gray Cloth",
+	"block.roses.green_cloth": "Green Cloth",
+	"block.roses.light_gray_cloth": "Light Gray Cloth",
+	"block.roses.magenta_cloth": "Magenta Cloth",
+	"block.roses.orange_cloth": "Orange Cloth",
+	"block.roses.purple_cloth": "Purple Cloth",
+	"block.roses.red_cloth": "Red Cloth",
+	"block.roses.rose_cloth": "Rose Cloth",
+	"block.roses.spring_green_cloth": "Spring Green Cloth",
+	"block.roses.ultramarine_cloth": "Ultramarine Cloth",
+	"block.roses.violet_cloth": "Violet Cloth",
+	"block.roses.white_cloth": "White Cloth",
+	"block.roses.yellow_cloth": "Yellow Cloth",
 	"advancements.roses.legacy.root.title": "Legacy Player",
 	"advancements.roses.legacy.root.description": "You've got nostalgia for the rose."
 }
