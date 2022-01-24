@@ -1,7 +1,7 @@
 package roses.content.client.setup;
 
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -15,9 +15,9 @@ public class ClientSetup
 	@SubscribeEvent
 	public static void clientSetup(FMLClientSetupEvent event)
 	{
-		RenderTypeLookup.setRenderLayer(ModRegistry.ROSE, RenderType.cutout());
-		RenderTypeLookup.setRenderLayer(ModRegistry.POTTED_ROSE, RenderType.cutout());
-		RenderTypeLookup.setRenderLayer(ModRegistry.CYAN_FLOWER, RenderType.cutout());
-		RenderTypeLookup.setRenderLayer(ModRegistry.POTTED_CYAN_FLOWER, RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(ModRegistry.ROSE, RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(ModRegistry.POTTED_ROSE, RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(ModRegistry.CYAN_FLOWER, RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(ModRegistry.POTTED_CYAN_FLOWER, RenderType.cutout());
 	}
 }

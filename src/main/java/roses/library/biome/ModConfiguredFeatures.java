@@ -1,27 +1,34 @@
 package roses.library.biome;
 
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
-import net.minecraft.world.gen.blockstateprovider.WeightedBlockStateProvider;
-import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.Features;
-import net.minecraft.world.gen.feature.IFeatureConfig;
+import net.minecraft.core.Registry;
+import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.placement.BiomeFilter;
+import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import roses.content.ModRegistry;
 import roses.content.ModUtils;
 
-public class ModConfiguredFeatures 
-{
-	public static final BlockClusterFeatureConfig ROSE_CONFIG = (new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(ModRegistry.ROSE.defaultBlockState(), 2), SimpleBlockPlacer.INSTANCE)).tries(64).build();
-	public static final ConfiguredFeature<?, ?> ROSES = register("roses", Feature.FLOWER.configured(ROSE_CONFIG).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE).count(4));	
-	
-	public static final BlockClusterFeatureConfig CYAN_FLOWER_CONFIG = (new BlockClusterFeatureConfig.Builder((new WeightedBlockStateProvider()).add(ModRegistry.CYAN_FLOWER.defaultBlockState(), 2), SimpleBlockPlacer.INSTANCE)).tries(64).build();
-	public static final ConfiguredFeature<?, ?> CYAN_FLOWERS = register("cyan_flowers", Feature.FLOWER.configured(CYAN_FLOWER_CONFIG).decorated(Features.Placements.ADD_32).decorated(Features.Placements.HEIGHTMAP_SQUARE).count(4));	
-	
-	private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String id, ConfiguredFeature<FC, ?> configuredFeature) 
-	{
-		return Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, ModUtils.rL(id), configuredFeature);
+public class ModConfiguredFeatures {
+	public static final ConfiguredFeature<?, ?> ROSES = register("roses", Feature.FLOWER.configured(patch(BlockStateProvider.simple(ModRegistry.ROSE), 64)));
+	public static final PlacedFeature PLACED_ROSES = PlacementUtils.register("placed_roses", ModConfiguredFeatures.ROSES.placed(RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+
+	public static final ConfiguredFeature<?, ?> CYAN_FLOWER = register("cyan_flower", Feature.FLOWER.configured(patch(BlockStateProvider.simple(ModRegistry.CYAN_FLOWER), 64)));
+	public static final PlacedFeature PLACED_CYAN_FLOWER = PlacementUtils.register("placed_cyan_flower", ModConfiguredFeatures.CYAN_FLOWER.placed(RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+
+	private static <FC extends FeatureConfiguration> ConfiguredFeature<FC, ?> register(String id, ConfiguredFeature<FC, ?> configuredFeature) {
+		return Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, ModUtils.rL(id), configuredFeature);
+	}
+
+	private static RandomPatchConfiguration patch(BlockStateProvider block, int tries) {
+		return FeatureUtils.simpleRandomPatchConfiguration(tries, Feature.SIMPLE_BLOCK.configured(new SimpleBlockConfiguration(block)).onlyWhenEmpty());
 	}
 }
