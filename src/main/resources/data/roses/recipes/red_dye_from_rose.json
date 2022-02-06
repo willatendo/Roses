@@ -1,10 +1,11 @@
 {
 	"type": "minecraft:crafting_shapeless",
 	"ingredients": [
-	{
-		"item": "roses:rose"
-	}],
+		{
+			"item": "roses:rose"
+		}
+	],
 	"result": {
 		"item": "minecraft:red_dye"
-  	}
+	}
 }

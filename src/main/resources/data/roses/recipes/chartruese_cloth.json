@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "roses:cloth",
+	"ingredients": [
+		{
+			"item": "minecraft:lime_dye"
+		},
+		{
+			"item": "minecraft:yellow_dye"
+		},
+		{
+			"item": "minecraft:white_wool"
+		}
+	],
+	"result": {
+		"item": "roses:chartruese_cloth"
+	}
+}
