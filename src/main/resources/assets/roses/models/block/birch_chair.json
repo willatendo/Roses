@@ -1,0 +1,6 @@
+{
+	"parent": "roses:block/chair_template",
+	"textures": {
+		"wood": "block/birch_planks"
+	}
+}

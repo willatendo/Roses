@@ -1,0 +1,13 @@
+{
+	"replace": false,
+	"values": [
+		"roses:oak_chair",
+		"roses:spruce_chair",
+		"roses:birch_chair",
+		"roses:jungle_chair",
+		"roses:acacia_chair",
+		"roses:dark_oak_chair",
+		"roses:crimson_chair",
+		"roses:warped_chair"
+	]
+}

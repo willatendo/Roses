@@ -17,6 +17,14 @@
 	"block.roses.violet_cloth": "Violet Cloth",
 	"block.roses.white_cloth": "White Cloth",
 	"block.roses.yellow_cloth": "Yellow Cloth",
+	"block.roses.oak_chair": "Oak Chair",
+	"block.roses.spruce_chair": "Spruce Chair",
+	"block.roses.birch_chair": "Birch Chair",
+	"block.roses.jungle_chair": "Jungle Chair",
+	"block.roses.acacia_chair": "Acacia Chair",
+	"block.roses.dark_oak_chair": "Dark Oak Chair",
+	"block.roses.crimson_chair": "Crimson Chair",
+	"block.roses.warped_chair": "Warped Chair",
 	"advancements.roses.legacy.root.title": "Legacy Player",
 	"advancements.roses.legacy.root.description": "You've got nostalgia for the rose."
 }
