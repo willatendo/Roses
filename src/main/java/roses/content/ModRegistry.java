@@ -16,11 +16,10 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import roses.library.block.ChairBlock;
 import roses.library.entity.SittingEntity;
+import roses.library.item.BurningBlockItem;
 import tyrannotitanlib.library.tyrannoregister.TyrannoRegister;
 
-public class ModRegistry {
-	public static final SoundEvent AFFECTIONATE_GHAST = soundBuilder("affectionate_ghast", new SoundEvent(ModUtils.rL("entity.ghast.affectionate")));
-	
+public class ModRegistry {	
 	public static final Block ROSE = blockAndItemBuilder("rose", new FlowerBlock(MobEffects.LUCK, 13, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS)));
 	public static final Block POTTED_ROSE = blockBuilder("potted_rose", new FlowerPotBlock(ROSE, BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion()));
 
@@ -45,12 +44,12 @@ public class ModRegistry {
 	public static final Block WHITE_CLOTH = blockAndItemBuilder("white_cloth", new Block(CLOTH_PROPERTIES), CreativeModeTab.TAB_BUILDING_BLOCKS);
 	public static final Block YELLOW_CLOTH = blockAndItemBuilder("yellow_cloth", new Block(CLOTH_PROPERTIES), CreativeModeTab.TAB_BUILDING_BLOCKS);
 
-	public static final Block OAK_CHAIR = blockAndItemBuilder("oak_chair", new ChairBlock(chair(MaterialColor.WOOD)));
-	public static final Block SPRUCE_CHAIR = blockAndItemBuilder("spruce_chair", new ChairBlock(chair(MaterialColor.PODZOL)));
-	public static final Block BIRCH_CHAIR = blockAndItemBuilder("birch_chair", new ChairBlock(chair(MaterialColor.SAND)));
-	public static final Block JUNGLE_CHAIR = blockAndItemBuilder("jungle_chair", new ChairBlock(chair(MaterialColor.DIRT)));
-	public static final Block ACACIA_CHAIR = blockAndItemBuilder("acacia_chair", new ChairBlock(chair(MaterialColor.COLOR_BROWN)));
-	public static final Block DARK_OAK_CHAIR = blockAndItemBuilder("dark_oak_chair", new ChairBlock(chair(MaterialColor.COLOR_BROWN)));
+	public static final Block OAK_CHAIR = burningBlockAndItemBuilder("oak_chair", new ChairBlock(chair(MaterialColor.WOOD)));
+	public static final Block SPRUCE_CHAIR = burningBlockAndItemBuilder("spruce_chair", new ChairBlock(chair(MaterialColor.PODZOL)));
+	public static final Block BIRCH_CHAIR = burningBlockAndItemBuilder("birch_chair", new ChairBlock(chair(MaterialColor.SAND)));
+	public static final Block JUNGLE_CHAIR = burningBlockAndItemBuilder("jungle_chair", new ChairBlock(chair(MaterialColor.DIRT)));
+	public static final Block ACACIA_CHAIR = burningBlockAndItemBuilder("acacia_chair", new ChairBlock(chair(MaterialColor.COLOR_BROWN)));
+	public static final Block DARK_OAK_CHAIR = burningBlockAndItemBuilder("dark_oak_chair", new ChairBlock(chair(MaterialColor.COLOR_BROWN)));
 	public static final Block CRIMSON_CHAIR = blockAndItemBuilder("crimson_chair", new ChairBlock(chair(MaterialColor.CRIMSON_STEM)));
 	public static final Block WARPED_CHAIR = blockAndItemBuilder("warped_chair", new ChairBlock(chair(MaterialColor.WARPED_STEM)));
 
@@ -67,6 +66,13 @@ public class ModRegistry {
 	
 	public static Block blockAndItemBuilder(String id, Block block) {
 		BlockItem item = new BlockItem(block, new Properties().tab(CreativeModeTab.TAB_DECORATIONS));
+		TyrannoRegister.registerBlock(id, block);
+		TyrannoRegister.registerItem(id, item);
+		return block;
+	}
+	
+	public static Block burningBlockAndItemBuilder(String id, Block block) {
+		BlockItem item = new BurningBlockItem(block, new Properties().tab(CreativeModeTab.TAB_DECORATIONS));
 		TyrannoRegister.registerBlock(id, block);
 		TyrannoRegister.registerItem(id, item);
 		return block;

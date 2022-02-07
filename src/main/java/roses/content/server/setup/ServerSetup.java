@@ -28,6 +28,12 @@ public class ServerSetup {
 
 			addToFlammables(ModRegistry.ROSE, 60, 100);
 			addToFlammables(ModRegistry.CYAN_FLOWER, 60, 100);
+			addToFlammables(ModRegistry.ACACIA_CHAIR, 5, 20);
+			addToFlammables(ModRegistry.BIRCH_CHAIR, 5, 20);
+			addToFlammables(ModRegistry.DARK_OAK_CHAIR, 5, 20);
+			addToFlammables(ModRegistry.JUNGLE_CHAIR, 5, 20);
+			addToFlammables(ModRegistry.OAK_CHAIR, 5, 20);
+			addToFlammables(ModRegistry.SPRUCE_CHAIR, 5, 20);
 
 			ModUtils.LOGGER.debug("Finished Adding Flammables");
 		}
