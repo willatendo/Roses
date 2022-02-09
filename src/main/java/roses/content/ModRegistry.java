@@ -1,6 +1,5 @@
 package roses.content;
 
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -16,10 +15,10 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import roses.library.block.ChairBlock;
 import roses.library.entity.SittingEntity;
-import roses.library.item.BurningBlockItem;
-import tyrannotitanlib.library.tyrannoregister.TyrannoRegister;
+import tyrannotitanlib.library.item.block.TyrannoBurningBlockItem;
+import tyrannotitanlib.tyranniregister.TyrannoRegister;
 
-public class ModRegistry {	
+public class ModRegistry {
 	public static final Block ROSE = blockAndItemBuilder("rose", new FlowerBlock(MobEffects.LUCK, 13, BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS)));
 	public static final Block POTTED_ROSE = blockBuilder("potted_rose", new FlowerPotBlock(ROSE, BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion()));
 
@@ -59,20 +58,15 @@ public class ModRegistry {
 		return BlockBehaviour.Properties.of(Material.WOOD, mapColour).strength(2.0F, 3.0F).sound(SoundType.WOOD);
 	}
 
-	public static SoundEvent soundBuilder(String id, SoundEvent event) {
-		TyrannoRegister.registerSound(id, event);
-		return event;
-	}
-	
 	public static Block blockAndItemBuilder(String id, Block block) {
 		BlockItem item = new BlockItem(block, new Properties().tab(CreativeModeTab.TAB_DECORATIONS));
 		TyrannoRegister.registerBlock(id, block);
 		TyrannoRegister.registerItem(id, item);
 		return block;
 	}
-	
+
 	public static Block burningBlockAndItemBuilder(String id, Block block) {
-		BlockItem item = new BurningBlockItem(block, new Properties().tab(CreativeModeTab.TAB_DECORATIONS));
+		BlockItem item = new TyrannoBurningBlockItem(new Properties().tab(CreativeModeTab.TAB_DECORATIONS), block, 300);
 		TyrannoRegister.registerBlock(id, block);
 		TyrannoRegister.registerItem(id, item);
 		return block;

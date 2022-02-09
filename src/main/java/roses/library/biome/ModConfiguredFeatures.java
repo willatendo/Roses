@@ -15,7 +15,7 @@ import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import roses.content.ModRegistry;
-import roses.content.ModUtils;
+import tyrannotitanlib.core.content.Util;
 
 public class ModConfiguredFeatures {
 	public static final ConfiguredFeature<?, ?> ROSES = register("roses", Feature.FLOWER.configured(patch(BlockStateProvider.simple(ModRegistry.ROSE), 64)));
@@ -25,7 +25,7 @@ public class ModConfiguredFeatures {
 	public static final PlacedFeature PLACED_CYAN_FLOWER = PlacementUtils.register("placed_cyan_flower", ModConfiguredFeatures.CYAN_FLOWER.placed(RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
 
 	private static <FC extends FeatureConfiguration> ConfiguredFeature<FC, ?> register(String id, ConfiguredFeature<FC, ?> configuredFeature) {
-		return Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, ModUtils.rL(id), configuredFeature);
+		return Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, Util.ROSES_UTILS.resource(id), configuredFeature);
 	}
 
 	private static RandomPatchConfiguration patch(BlockStateProvider block, int tries) {

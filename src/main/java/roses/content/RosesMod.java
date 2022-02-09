@@ -8,8 +8,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig.Type;
 import roses.content.config.RosesConfig;
 import roses.library.biome.BiomeGeneration;
+import tyrannotitanlib.core.content.Util;
 
-@Mod(ModUtils.ID)
+@Mod(Util.ROSES_ID)
 public class RosesMod {
 	public RosesMod() {
 //		final IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
