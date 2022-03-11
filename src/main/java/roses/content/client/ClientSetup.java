@@ -13,6 +13,6 @@ import tyrannotitanlib.core.content.Util;
 public class ClientSetup {
 	@SubscribeEvent
 	public static void onEntityRendererRegistry(EntityRenderersEvent.RegisterRenderers event) {
-		event.registerEntityRenderer(ModRegistry.CHAIR_ENTITY, EmptyRenderer::new);
+		event.registerEntityRenderer(ModRegistry.CHAIR_ENTITY.get(), EmptyRenderer::new);
 	}
 }

@@ -1,0 +1,13 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "roses:cloth",
+	"ingredients": [
+		{
+			"item": "roses:ruby_block"
+		}
+	],
+	"result": {
+		"item": "roses:ruby",
+		"count": 9
+	}
+}

@@ -9,15 +9,9 @@ public class BiomeGeneration {
 	public static void addFeaturesToOverworld(BiomeLoadingEvent event) {
 		BiomeGenerationSettingsBuilder generation = event.getGeneration();
 
-		if (RosesConfig.COMMON_CONFIG.enableRosesGeneration.get()) {
-			if (RosesConfig.COMMON_CONFIG.roseBiomes.get().contains(event.getName().toString())) {
-				generation.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.PLACED_ROSES);
-			}
-		}
-
-		if (RosesConfig.COMMON_CONFIG.enableCyanFlowersGeneration.get()) {
-			if (RosesConfig.COMMON_CONFIG.cyanFlowerBiomes.get().contains(event.getName().toString())) {
-				generation.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.PLACED_CYAN_FLOWER);
+		if (RosesConfig.COMMON_CONFIG.enableFlowerGeneration.get()) {
+			if (RosesConfig.COMMON_CONFIG.flowerBiomes.get().contains(event.getName().toString())) {
+				generation.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModConfiguredFeatures.PLACED_ROSE_AND_CYAN_FLOWER);
 			}
 		}
 	}

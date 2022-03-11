@@ -30,7 +30,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import roses.content.ModRegistry;
 import roses.library.entity.SittingEntity;
 
-public class ChairBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
+public class ChairBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock, BurningBlock {
 	private static final VoxelShape SHAPE = Block.box(2, 0, 2, 14, 16, 14);
 	private static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
@@ -74,7 +74,7 @@ public class ChairBlock extends HorizontalDirectionalBlock implements SimpleWate
 	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
 		if (!level.isClientSide()) {
 			if (isPlayerInRange(player, pos)) {
-				SittingEntity seat = ModRegistry.CHAIR_ENTITY.create(level);
+				SittingEntity seat = ModRegistry.CHAIR_ENTITY.get().create(level);
 				seat.setSeatPos(pos);
 				level.addFreshEntity(seat);
 				player.startRiding(seat);
@@ -110,5 +110,10 @@ public class ChairBlock extends HorizontalDirectionalBlock implements SimpleWate
 			entity.remove(Entity.RemovalReason.DISCARDED);
 		}
 		super.onRemove(state, level, pos, newState, isMoving);
+	}
+
+	@Override
+	public int getBurnTime() {
+		return 0;
 	}
 }
