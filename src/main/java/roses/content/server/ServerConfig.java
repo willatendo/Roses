@@ -8,7 +8,7 @@ import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
 
 public class ServerConfig {
-	protected static final String TRANSLATION_TEXT = "lostworlds.config.";
+	protected static final String TRANSLATION_TEXT = "config.roses.";
 
 	public final BooleanValue enableFlowerGeneration;
 	public final ForgeConfigSpec.ConfigValue<List<? extends String>> flowerBiomes;

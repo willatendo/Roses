@@ -13,7 +13,7 @@ public class SittingEntity extends Entity {
 
 	public SittingEntity(EntityType<? extends SittingEntity> type, Level world) {
 		super(type, world);
-		noPhysics = true;
+		this.noPhysics = true;
 	}
 
 	public void setSeatPos(BlockPos pos) {

@@ -1,16 +1,23 @@
 buildscript {
-    repositories {
-        maven { url = 'https://maven.minecraftforge.net' }
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-    }
-	
+	repositories {
+		maven { url = 'https://maven.minecraftforge.net' }
+		mavenCentral()
+	}
+	dependencies {
+		classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+	}
+}
+
+plugins {
+    id 'eclipse'
+    id 'maven-publish'
+	id 'com.github.johnrengelman.shadow' version '7.1.0'
 }
 apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
+
+configurations {
+	shade
+}
 
 version = '3.3.0'
 group = 'roses'
@@ -19,50 +26,86 @@ archivesBaseName = 'roses'
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
-    mappings channel: 'official', version: '1.18.2'
+	mappings channel: 'official', version: '1.18.2'
 	
-    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
-    
-    runs {
-        client {
-            workingDirectory project.file('run')
+	accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+	
+	runs {
+		client {
+			workingDirectory project.file('run')
 
-            mods {
-                roses {
-                    source sourceSets.main
-                }
-            }
-        }
-    }
+			mods {
+				roses {
+					source sourceSets.main
+				}
+			}
+		}
+			
+		data {
+			workingDirectory project.file('run')
+			
+			args '--mod', 'roses', '--all', '--existing', file('src/main/resources').toString(), '--existing', file('src/generated/resources').toString(), '--output', file('src/generated/resources/')
+					
+			mods {
+				roses {
+					sourceSets.main
+				}
+			}
+		}
+	}
 }
 
+sourceSets.main.resources {
+    srcDir 'src/generated/resources'
+}
+
+shadowJar {
+	classifier = ''
+	configurations = [project.configurations.shade]
+	relocate 'com.tterrag.registrate', 'roses.repack.registrate'
+}
+	
 repositories {
-    maven {
-        url "https://www.cursemaven.com"
-        content {
-            includeGroup "curse.maven"
-        }
-    }
+	maven {
+		url "https://www.cursemaven.com"
+		content {
+			includeGroup "curse.maven"
+		}
+	}
+	maven { // Registrate
+		url "https://maven.tterrag.com/"
+	}
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.18.2-40.0.3'
-    
-    implementation fg.deobf("curse.maven:tyrannotitan-library-forge-425570:3672307")
+	minecraft 'net.minecraftforge:forge:1.18.2-40.0.25'
+	
+	implementation fg.deobf("curse.maven:tyrannotitan-library-forge-425570:3711889")
+	
+	def registrate = "com.tterrag.registrate:Registrate:MC1.18.2-1.0.24"
+	implementation fg.deobf(registrate)
+	shade registrate
 }
 
 jar {
-    manifest {
-        attributes([
-            "Specification-Title": "roses",
-            "Specification-Vendor": "Willatendo",
-            "Specification-Version": "3.3.0",
-            "Implementation-Title": project.name,
-            "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"Willatendo",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-        ])
-    }
+	manifest {
+		attributes([
+			"Specification-Title": "roses",
+			"Specification-Vendor": "Willatendo",
+			"Specification-Version": "3.3.0",
+			"Implementation-Title": project.name,
+			"Implementation-Version": "${version}",
+			"Implementation-Vendor" :"Willatendo",
+			"Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+		])
+	}
 }
 
-jar.finalizedBy('reobfJar') 
+reobf {
+	shadowJar {}
+}
+
+build.dependsOn shadowJar
+build.dependsOn reobfShadowJar
+
+jar.finalizedBy('reobfJar')

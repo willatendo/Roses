@@ -32,6 +32,6 @@ Brings the past back!
 [[dependencies.roses]]
     modId="tyrannotitanlib"
     mandatory=true
-    versionRange="[v4.0.0,)"
+    versionRange="[v4.1.,)"
     ordering="NONE"
     side="BOTH"

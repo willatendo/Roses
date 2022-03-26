@@ -1,18 +1,22 @@
 package roses.content.client;
 
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-import roses.content.ModRegistry;
-import roses.library.entity.EmptyRenderer;
-import tyrannotitanlib.core.content.Util;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import roses.RosesMod;
+import roses.content.RosesRegistry;
 
-@EventBusSubscriber(bus = Bus.MOD, modid = Util.ROSES_ID, value = Dist.CLIENT)
+@EventBusSubscriber(bus = Bus.MOD, modid = RosesMod.ID, value = Dist.CLIENT)
 public class ClientSetup {
 	@SubscribeEvent
-	public static void onEntityRendererRegistry(EntityRenderersEvent.RegisterRenderers event) {
-		event.registerEntityRenderer(ModRegistry.CHAIR_ENTITY.get(), EmptyRenderer::new);
+	public static void clientSetup(FMLClientSetupEvent event) {
+		ItemBlockRenderTypes.setRenderLayer(RosesRegistry.ROSE.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(RosesRegistry.POTTED_ROSE.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(RosesRegistry.CYAN_FLOWER.get(), RenderType.cutout());
+		ItemBlockRenderTypes.setRenderLayer(RosesRegistry.POTTED_CYAN_FLOWER.get(), RenderType.cutout());
 	}
 }

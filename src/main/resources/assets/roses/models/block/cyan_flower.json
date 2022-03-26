@@ -1,6 +1,0 @@
-{
-	"parent": "minecraft:block/cross",
-	"textures": {
-		"cross": "roses:blocks/cyan_flower"
-	}
-}

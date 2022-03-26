@@ -1,5 +1,7 @@
 package roses.content.server.setup;
 
+import static roses.RosesMod.UTILS;
+
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -9,33 +11,33 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import roses.content.ModRegistry;
-import tyrannotitanlib.core.content.Util;
+import roses.RosesMod;
+import roses.content.RosesRegistry;
 
 public class ServerSetup {
-	@EventBusSubscriber(modid = Util.ROSES_ID, bus = Bus.MOD)
+	@EventBusSubscriber(modid = RosesMod.ID, bus = Bus.MOD)
 	static class VanillaMaps {
 		@SubscribeEvent
 		public static void addToMaps(final FMLCommonSetupEvent event) {
-			Util.ROSES_UTILS.getLogger().debug("Adding Compostables");
+			UTILS.getLogger().debug("Adding Compostables");
 
-			addToCompostables(0.65F, ModRegistry.ROSE.get());
-			addToCompostables(0.65F, ModRegistry.CYAN_FLOWER.get());
+			addToCompostables(0.65F, RosesRegistry.ROSE.get());
+			addToCompostables(0.65F, RosesRegistry.CYAN_FLOWER.get());
 
-			Util.ROSES_UTILS.getLogger().debug("Finished Adding Compostables");
+			UTILS.getLogger().debug("Finished Adding Compostables");
 
-			Util.ROSES_UTILS.getLogger().debug("Adding Flammables");
+			UTILS.getLogger().debug("Adding Flammables");
 
-			addToFlammables(ModRegistry.ROSE.get(), 60, 100);
-			addToFlammables(ModRegistry.CYAN_FLOWER.get(), 60, 100);
-			addToFlammables(ModRegistry.ACACIA_CHAIR.get(), 5, 20);
-			addToFlammables(ModRegistry.BIRCH_CHAIR.get(), 5, 20);
-			addToFlammables(ModRegistry.DARK_OAK_CHAIR.get(), 5, 20);
-			addToFlammables(ModRegistry.JUNGLE_CHAIR.get(), 5, 20);
-			addToFlammables(ModRegistry.OAK_CHAIR.get(), 5, 20);
-			addToFlammables(ModRegistry.SPRUCE_CHAIR.get(), 5, 20);
+			addToFlammables(RosesRegistry.ROSE.get(), 60, 100);
+			addToFlammables(RosesRegistry.CYAN_FLOWER.get(), 60, 100);
+			addToFlammables(RosesRegistry.ACACIA_CHAIR.get(), 5, 20);
+			addToFlammables(RosesRegistry.BIRCH_CHAIR.get(), 5, 20);
+			addToFlammables(RosesRegistry.DARK_OAK_CHAIR.get(), 5, 20);
+			addToFlammables(RosesRegistry.JUNGLE_CHAIR.get(), 5, 20);
+			addToFlammables(RosesRegistry.OAK_CHAIR.get(), 5, 20);
+			addToFlammables(RosesRegistry.SPRUCE_CHAIR.get(), 5, 20);
 
-			Util.ROSES_UTILS.getLogger().debug("Finished Adding Flammables");
+			UTILS.getLogger().debug("Finished Adding Flammables");
 		}
 
 		private static void addToCompostables(float chance, ItemLike item) {
