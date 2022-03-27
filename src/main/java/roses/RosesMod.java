@@ -2,6 +2,7 @@ package roses;
 
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 
+import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -9,6 +10,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig.Type;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
+import roses.data.RosesAdvancements;
 import roses.server.RosesRegistry;
 import roses.server.biome.BiomeGeneration;
 import roses.server.config.RosesConfig;
@@ -25,18 +28,24 @@ public class RosesMod {
 		var bus = FMLJavaModLoadingContext.get().getModEventBus();
 		var forgeBus = MinecraftForge.EVENT_BUS;
 
-		RosesRegistry.registry(bus);
-
-		bus.addListener(this::setup);
+		RosesRegistry.init();
+		
+		bus.addListener(this::dataSetup);
+		bus.addListener(this::commonSetup);
 
 		forgeBus.addListener(EventPriority.HIGH, BiomeGeneration::addFeaturesToOverworld);
 
 		ModLoadingContext.get().registerConfig(Type.COMMON, RosesConfig.commonSpec);
 	}
 
-	private void setup(FMLCommonSetupEvent event) {
+	private void commonSetup(FMLCommonSetupEvent event) {
 		event.enqueueWork(() -> {
 			RosesRegistry.ROSES_TAB.setItemIcon(RosesRegistry.ROSE.get().asItem().getDefaultInstance());
 		});
+	}
+	
+	private void dataSetup(GatherDataEvent event) {
+		DataGenerator dataGenerator = event.getGenerator();
+		dataGenerator.addProvider(new RosesAdvancements(dataGenerator));
 	}
 }

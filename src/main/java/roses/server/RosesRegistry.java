@@ -1,7 +1,6 @@
 package roses.server;
 
 import static roses.RosesMod.CENTRAL_REGISTRATE;
-import static roses.RosesMod.UTILS;
 
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
 import com.tterrag.registrate.util.entry.BlockEntry;
@@ -10,15 +9,11 @@ import com.tterrag.registrate.util.entry.ItemEntry;
 
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
@@ -28,6 +23,7 @@ import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.OreBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -38,22 +34,16 @@ import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraftforge.client.model.generators.ModelFile;
 import roses.RosesMod;
 import roses.server.block.ChairBlock;
 import roses.server.entity.EmptyRenderer;
 import roses.server.entity.SittingEntity;
 import roses.server.util.RosesRegistrate;
-import tyrannotitanlib.library.item.TyrannoArmourMaterial;
 import tyrannotitanlib.library.itemgroup.BasicCreativeTab;
 
 public class RosesRegistry {
 	public static final RosesRegistrate REGISTRATE = CENTRAL_REGISTRATE.get().creativeModeTab(() -> RosesRegistry.ROSES_TAB);
-
-	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, RosesMod.ID);
 
 	public static final BasicCreativeTab ROSES_TAB = new BasicCreativeTab(RosesMod.ID, "roses_tab");
 
@@ -63,7 +53,7 @@ public class RosesRegistry {
 		Builder builder = LootTable.lootTable();
 		LootItemCondition.Builder survivesExplosion = ExplosionCondition.survivesExplosion();
 		provider.add(block, builder.withPool(LootPool.lootPool().when(survivesExplosion).setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(Blocks.FLOWER_POT)).add(LootItem.lootTableItem(RosesRegistry.ROSE.get()))));
-	}).tag(BlockTags.FLOWER_POTS, RosesTags.Blocks.LEGACY_BLOCKS).register();
+	}).tag(BlockTags.FLOWER_POTS).register();
 
 	// 2.0.0 Content
 	public static final BlockEntry<FlowerBlock> CYAN_FLOWER = REGISTRATE.block("cyan_flower", properties -> new FlowerBlock(MobEffects.CONDUIT_POWER, 3, properties)).blockstate((context, provider) -> flower(provider, context.get())).item().model((context, provider) -> provider.blockSprite(() -> context.get())).build().initialProperties(() -> Blocks.POPPY).tag(BlockTags.SMALL_FLOWERS, RosesTags.Blocks.LEGACY_BLOCKS).register();
@@ -71,7 +61,7 @@ public class RosesRegistry {
 		Builder builder = LootTable.lootTable();
 		LootItemCondition.Builder survivesExplosion = ExplosionCondition.survivesExplosion();
 		provider.add(block, builder.withPool(LootPool.lootPool().when(survivesExplosion).setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(Blocks.FLOWER_POT)).add(LootItem.lootTableItem(RosesRegistry.CYAN_FLOWER.get()))));
-	}).tag(BlockTags.FLOWER_POTS, RosesTags.Blocks.LEGACY_BLOCKS).register();
+	}).tag(BlockTags.FLOWER_POTS).register();
 
 	// 3.1.0 Content
 	public static final BlockEntry<Block> CAPRI_CLOTH = REGISTRATE.block("capri_cloth", Block::new).initialProperties(() -> Blocks.WHITE_WOOL).simpleItem().tag(BlockTags.WOOL, RosesTags.Blocks.CLOTH).register();
@@ -104,19 +94,10 @@ public class RosesRegistry {
 	public static final EntityEntry<SittingEntity> CHAIR_ENTITY = REGISTRATE.entity("chair", SittingEntity.factory, MobCategory.MISC).renderer(() -> EmptyRenderer::new).properties(builder -> builder.sized(0.0001F, 0.0001F).updateInterval(20).clientTrackingRange(256)).register();
 
 	// 3.3.0 Content
-	public static final TyrannoArmourMaterial STUDED_ARMOUR = new TyrannoArmourMaterial(UTILS.mod("studed_armour"), 15, new int[] { 2, 3, 5, 2 }, 13, () -> SoundEvents.ARMOR_EQUIP_LEATHER, 0.5F, 0.01F, () -> {
-		return Ingredient.of(Items.CHAIN);
-	});
-
 	public static final ItemEntry<Item> RUBY = REGISTRATE.item("ruby", Item::new).tag(RosesTags.Items.LEGACY_ITEMS).register();
-	public static final BlockEntry<OreBlock> RUBY_ORE = REGISTRATE.block("ruby_ore", properties -> new OreBlock(properties, UniformInt.of(3, 7))).simpleItem().tag(BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_IRON_TOOL, RosesTags.Blocks.LEGACY_BLOCKS).register();
-	public static final BlockEntry<OreBlock> DEEPSLATE_RUBY_ORE = REGISTRATE.block("deepslate_ruby_ore", properties -> new OreBlock(properties, UniformInt.of(3, 7))).simpleItem().tag(BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_IRON_TOOL, RosesTags.Blocks.LEGACY_BLOCKS).register();
+	public static final BlockEntry<OreBlock> RUBY_ORE = REGISTRATE.block("ruby_ore", properties -> new OreBlock(properties, UniformInt.of(3, 7))).loot((provider, block) -> provider.add(block, provider.createOreDrop(block, RosesRegistry.RUBY.get()))).simpleItem().tag(BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_IRON_TOOL, RosesTags.Blocks.LEGACY_BLOCKS).register();
+	public static final BlockEntry<OreBlock> DEEPSLATE_RUBY_ORE = REGISTRATE.block("deepslate_ruby_ore", properties -> new OreBlock(properties, UniformInt.of(3, 7))).loot((provider, block) -> provider.add(block, provider.createOreDrop(block, RosesRegistry.RUBY.get()))).simpleItem().tag(BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_IRON_TOOL, RosesTags.Blocks.LEGACY_BLOCKS).register();
 	public static final BlockEntry<Block> RUBY_BLOCK = REGISTRATE.block("ruby_block", Block::new).tag(BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.NEEDS_IRON_TOOL, RosesTags.Blocks.LEGACY_BLOCKS).register();
-
-	public static final RegistryObject<Item> STUDED_HELMET = ITEMS.register("studed_helmet", () -> new ArmorItem(STUDED_ARMOUR, EquipmentSlot.HEAD, new Properties().tab(ROSES_TAB)));
-	public static final RegistryObject<Item> STUDED_CHESTPLATE = ITEMS.register("studed_chestplate", () -> new ArmorItem(STUDED_ARMOUR, EquipmentSlot.CHEST, new Properties().tab(ROSES_TAB)));
-	public static final RegistryObject<Item> STUDED_LEGGINGS = ITEMS.register("studed_leggings", () -> new ArmorItem(STUDED_ARMOUR, EquipmentSlot.LEGS, new Properties().tab(ROSES_TAB)));
-	public static final RegistryObject<Item> STUDED_BOOTS = ITEMS.register("studed_boots", () -> new ArmorItem(STUDED_ARMOUR, EquipmentSlot.FEET, new Properties().tab(ROSES_TAB)));
 
 	public static BlockBehaviour.Properties chair(MaterialColor mapColour) {
 		return BlockBehaviour.Properties.of(Material.WOOD, mapColour).strength(2.0F, 3.0F).sound(SoundType.WOOD);
@@ -124,7 +105,9 @@ public class RosesRegistry {
 
 	private static void chair(RegistrateBlockstateProvider provider, Block block, String planks) {
 		ResourceLocation name = block.getRegistryName();
-		provider.getVariantBuilder(block).partialState().setModels(new ConfiguredModel(provider.models().singleTexture(name.getPath(), new ResourceLocation(RosesMod.ID, "block/template_chair"), "wood", new ResourceLocation("block/" + planks + "_planks"))));
+		ModelFile file = provider.models().singleTexture(name.getPath(), new ResourceLocation(RosesMod.ID, "block/template_chair"), "wood", new ResourceLocation("block/" + planks + "_planks"));
+		provider.getVariantBuilder(block).forAllStatesExcept(state -> ConfiguredModel.builder().modelFile(file).rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360).build(), BlockStateProperties.WATERLOGGED);
+
 	}
 
 	private static void flower(RegistrateBlockstateProvider provider, Block block) {
@@ -137,7 +120,6 @@ public class RosesRegistry {
 		provider.getVariantBuilder(block).partialState().setModels(new ConfiguredModel(provider.models().singleTexture(name.getPath(), new ResourceLocation("block/flower_pot_cross"), "plant", new ResourceLocation(name.getNamespace(), "block/" + flower))));
 	}
 
-	public static void registry(IEventBus bus) {
-		ITEMS.register(bus);
+	public static void init() {
 	}
 }

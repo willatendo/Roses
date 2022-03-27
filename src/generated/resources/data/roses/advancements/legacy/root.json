@@ -16,7 +16,7 @@
     "background": "roses:textures/gui/advancements.png"
   },
   "criteria": {
-    "has_legacy_content": {
+    "root": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -29,7 +29,7 @@
   },
   "requirements": [
     [
-      "has_legacy_content"
+      "root"
     ]
   ]
 }

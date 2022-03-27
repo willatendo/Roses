@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Set;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -15,6 +16,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.CriterionTriggerInstance;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
@@ -23,6 +25,7 @@ import net.minecraft.data.DataProvider;
 import net.minecraft.data.HashCache;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.ItemLike;
 import roses.server.RosesRegistry;
 import roses.server.RosesTags;
 
@@ -37,21 +40,25 @@ public class RosesAdvancements implements DataProvider {
 	}
 
 	public void register(Consumer<Advancement> consumer) {
-		Advancement.Builder.advancement().display(RosesRegistry.ROSE.asStack(), new TranslatableComponent(LANG + "root"), new TranslatableComponent(LANG + "root.desc"), new ResourceLocation(ID, "textures/gui/advancements.png"), FrameType.TASK, false, false, false).addCriterion("has_legacy_content", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(RosesTags.Items.LEGACY_BLOCKS).build())).save(consumer, ID + ":root");
+		advancement(() -> RosesRegistry.ROSE.getUnchecked(), "root", FrameType.TASK, false, false, false, "has_legacy_content", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(RosesTags.Items.LEGACY_BLOCKS).build()), consumer);
+	}
+
+	public void advancement(Supplier<ItemLike> display, String id, FrameType frame, boolean showToast, boolean announceToChat, boolean hidden, String criteria, CriterionTriggerInstance trigger, Consumer<Advancement> consumer) {
+		Advancement.Builder.advancement().display(display.get(), new TranslatableComponent(LANG + id), new TranslatableComponent(LANG + id + ".desc"), new ResourceLocation(ID, "textures/gui/advancements.png"), frame, showToast, announceToChat, hidden).addCriterion(id, trigger).save(consumer, ID + ":" + id);
 	}
 
 	@Override
 	public void run(HashCache cache) throws IOException {
 		Path path = this.generator.getOutputFolder();
 		Set<ResourceLocation> set = Sets.newHashSet();
-		Consumer<Advancement> consumer = (p_204017_3_) -> {
-			if (!set.add(p_204017_3_.getId()))
-				throw new IllegalStateException("Duplicate advancement " + p_204017_3_.getId());
+		Consumer<Advancement> consumer = (advancement) -> {
+			if (!set.add(advancement.getId()))
+				throw new IllegalStateException("Duplicate advancement " + advancement.getId());
 
-			Path path1 = getPath(path, p_204017_3_);
+			Path path1 = getPath(path, advancement);
 
 			try {
-				DataProvider.save(GSON, cache, p_204017_3_.deconstruct().serializeToJson(), path1);
+				DataProvider.save(GSON, cache, advancement.deconstruct().serializeToJson(), path1);
 			} catch (IOException ioexception) {
 				LOGGER.error("Couldn't save advancement {}", path1, ioexception);
 			}
