@@ -9,10 +9,10 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig.Type;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import roses.content.RosesRegistry;
-import roses.content.config.RosesConfig;
-import roses.library.biome.BiomeGeneration;
-import roses.library.util.RosesRegistrate;
+import roses.server.RosesRegistry;
+import roses.server.biome.BiomeGeneration;
+import roses.server.config.RosesConfig;
+import roses.server.util.RosesRegistrate;
 import tyrannotitanlib.core.content.UtilitiesRegistry;
 
 @Mod(RosesMod.ID)

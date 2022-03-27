@@ -1,4 +1,6 @@
 {
+  "advancement.roses.root": "\u0279\u01DD\u028E\u0250\u05DF\u0500 \u028E\u0254\u0250b\u01DD\uA780",
+  "advancement.roses.root.desc": "\u02D9\u01DDso\u0279 \u01DD\u0265\u0287 \u0279o\u025F \u0250\u0131b\u05DF\u0250\u0287sou \u0287ob \u01DD\u028C,no\u028E",
   "block.roses.acacia_chair": "\u0279\u0131\u0250\u0265\u0186 \u0250\u0131\u0254\u0250\u0254\u2C6F",
   "block.roses.birch_chair": "\u0279\u0131\u0250\u0265\u0186 \u0265\u0254\u0279\u0131\u15FA",
   "block.roses.capri_cloth": "\u0265\u0287o\u05DF\u0186 \u0131\u0279d\u0250\u0186",
@@ -31,5 +33,6 @@
   "block.roses.white_cloth": "\u0265\u0287o\u05DF\u0186 \u01DD\u0287\u0131\u0265M",
   "block.roses.yellow_cloth": "\u0265\u0287o\u05DF\u0186 \u028Do\u05DF\u05DF\u01DD\u028E",
   "entity.roses.chair": "\u0279\u0131\u0250\u0265\u0186",
-  "item.roses.ruby": "\u028Eqn\u1D1A"
+  "item.roses.ruby": "\u028Eqn\u1D1A",
+  "itemGroup.roses.roses_tab": "s\u01DDso\u1D1A"
 }

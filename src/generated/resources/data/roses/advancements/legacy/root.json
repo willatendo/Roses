@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "item": "roses:rose"
+    },
+    "title": {
+      "translate": "advancement.roses.root"
+    },
+    "description": {
+      "translate": "advancement.roses.root.desc"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false,
+    "background": "roses:textures/gui/advancements.png"
+  },
+  "criteria": {
+    "has_legacy_content": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "roses:legacy_blocks"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_legacy_content"
+    ]
+  ]
+}

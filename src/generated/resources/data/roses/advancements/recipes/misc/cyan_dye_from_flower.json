@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "roses:cyan_dye_from_flower"
+    ]
+  },
+  "criteria": {
+    "has_cyan_flower": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "roses:cyan_flower"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "roses:cyan_dye_from_flower"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cyan_flower",
+      "has_the_recipe"
+    ]
+  ]
+}
