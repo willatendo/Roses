@@ -1,7 +1,5 @@
 package roses.server.events.setup;
 
-import static roses.RosesMod.UTILS;
-
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -19,14 +17,8 @@ public class ServerSetup {
 	static class VanillaMaps {
 		@SubscribeEvent
 		public static void addToMaps(final FMLCommonSetupEvent event) {
-			UTILS.getLogger().debug("Adding Compostables");
-
 			addToCompostables(0.65F, RosesRegistry.ROSE.get());
 			addToCompostables(0.65F, RosesRegistry.CYAN_FLOWER.get());
-
-			UTILS.getLogger().debug("Finished Adding Compostables");
-
-			UTILS.getLogger().debug("Adding Flammables");
 
 			addToFlammables(RosesRegistry.ROSE.get(), 60, 100);
 			addToFlammables(RosesRegistry.CYAN_FLOWER.get(), 60, 100);
@@ -36,8 +28,6 @@ public class ServerSetup {
 			addToFlammables(RosesRegistry.JUNGLE_CHAIR.get(), 5, 20);
 			addToFlammables(RosesRegistry.OAK_CHAIR.get(), 5, 20);
 			addToFlammables(RosesRegistry.SPRUCE_CHAIR.get(), 5, 20);
-
-			UTILS.getLogger().debug("Finished Adding Flammables");
 		}
 
 		private static void addToCompostables(float chance, ItemLike item) {

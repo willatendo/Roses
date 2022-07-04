@@ -114,6 +114,6 @@ public class ChairBlock extends HorizontalDirectionalBlock implements SimpleWate
 
 	@Override
 	public int getBurnTime() {
-		return 0;
+		return 300;
 	}
 }

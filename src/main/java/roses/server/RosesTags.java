@@ -1,12 +1,11 @@
 package roses.server;
 
-import static roses.RosesMod.UTILS;
-
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import roses.RosesMod;
 
 public class RosesTags {
 	public static class Items {
@@ -16,7 +15,7 @@ public class RosesTags {
 		public static final TagKey<Item> CLOTH = tag("cloth");
 
 		private static TagKey<Item> tag(String name) {
-			return ItemTags.create(UTILS.mod(name));
+			return ItemTags.create(RosesMod.rL(name));
 		}
 	}
 
@@ -26,7 +25,7 @@ public class RosesTags {
 		public static final TagKey<Block> CLOTH = tag("cloth");
 
 		private static TagKey<Block> tag(String name) {
-			return BlockTags.create(UTILS.mod(name));
+			return BlockTags.create(RosesMod.rL(name));
 		}
 	}
 }
