@@ -1,0 +1,10 @@
+{
+	"type": "roses:change_music",
+	"biomes": "#roses:uses_music/deep_dark_music",
+	"music": {
+		"sound": "roses:music.sound.deep_dark",
+		"min_delay": 12000,
+		"max_delay": 24000,
+		"replace_current_music": true
+	}
+}

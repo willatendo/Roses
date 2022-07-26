@@ -6,10 +6,13 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import roses.data.RosesAdvancements;
+import roses.data.RosesBiomeTags;
+import roses.server.biome.RosesBiomeModifierSerializers;
 import roses.server.block.RosesBlocks;
 import roses.server.entity.RosesEntities;
 import roses.server.item.RosesItems;
@@ -41,13 +44,16 @@ public class RosesMod {
 		RosesItems.init();
 		RosesBlocks.init();
 		RosesEntities.init();
+		RosesBiomeModifierSerializers.BIOME_MODIFIER_SERIALIZERS.register(bus);
 
 		bus.addListener(this::dataSetup);
 	}
 
 	private void dataSetup(GatherDataEvent event) {
 		DataGenerator dataGenerator = event.getGenerator();
+		ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 		dataGenerator.addProvider(true, new RosesAdvancements(dataGenerator));
+		dataGenerator.addProvider(true, new RosesBiomeTags(dataGenerator, existingFileHelper));
 	}
 
 	public static ResourceLocation rL(String path) {
