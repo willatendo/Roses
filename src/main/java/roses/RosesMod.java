@@ -12,9 +12,11 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import roses.data.RosesAdvancements;
 import roses.data.RosesBiomeTags;
+import roses.data.RosesGameEventsTags;
 import roses.server.biome.RosesBiomeModifierSerializers;
 import roses.server.block.RosesBlocks;
 import roses.server.entity.RosesEntities;
+import roses.server.game_event.RosesGameEvents;
 import roses.server.item.RosesItems;
 import roses.server.sound.RosesSounds;
 import roses.server.util.RosesRegistrate;
@@ -45,6 +47,7 @@ public class RosesMod {
 		RosesBlocks.init();
 		RosesEntities.init();
 		RosesBiomeModifierSerializers.BIOME_MODIFIER_SERIALIZERS.register(bus);
+		RosesGameEvents.GAME_EVENTS.register(bus);
 
 		bus.addListener(this::dataSetup);
 	}
@@ -54,6 +57,7 @@ public class RosesMod {
 		ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 		dataGenerator.addProvider(true, new RosesAdvancements(dataGenerator));
 		dataGenerator.addProvider(true, new RosesBiomeTags(dataGenerator, existingFileHelper));
+		dataGenerator.addProvider(true, new RosesGameEventsTags(dataGenerator, existingFileHelper));
 	}
 
 	public static ResourceLocation rL(String path) {

@@ -2,6 +2,7 @@
   "values": [
     "roses:ruby_ore",
     "roses:deepslate_ruby_ore",
-    "roses:ruby_block"
+    "roses:ruby_block",
+    "roses:cog"
   ]
 }
