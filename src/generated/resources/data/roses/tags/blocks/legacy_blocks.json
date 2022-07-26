@@ -1,12 +1,9 @@
 {
-  "replace": false,
   "values": [
     "#roses:chairs",
     "#roses:cloth",
     "roses:rose",
     "roses:cyan_flower",
-    "roses:ruby_ore",
-    "roses:deepslate_ruby_ore",
     "roses:ruby_block"
   ]
 }

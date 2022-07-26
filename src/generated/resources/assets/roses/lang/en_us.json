@@ -33,6 +33,8 @@
   "block.roses.white_cloth": "White Cloth",
   "block.roses.yellow_cloth": "Yellow Cloth",
   "entity.roses.chair": "Chair",
+  "item.roses.music_disc_magnetic_circuit": "Music Disc",
+  "item.roses.music_disc_magnetic_circuit.desc": "Notch - Magnetic Circuit",
   "item.roses.ruby": "Ruby",
-  "itemGroup.roses.roses_tab": "Roses"
+  "itemGroup.roses.roses": "Roses"
 }

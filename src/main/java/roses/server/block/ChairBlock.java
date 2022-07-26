@@ -27,7 +27,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import roses.server.RosesRegistry;
+import roses.server.entity.RosesEntities;
 import roses.server.entity.SittingEntity;
 
 public class ChairBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock, BurningBlock {
@@ -74,7 +74,7 @@ public class ChairBlock extends HorizontalDirectionalBlock implements SimpleWate
 	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
 		if (!level.isClientSide()) {
 			if (isPlayerInRange(player, pos)) {
-				SittingEntity seat = RosesRegistry.CHAIR_ENTITY.get().create(level);
+				SittingEntity seat = RosesEntities.CHAIR_ENTITY.get().create(level);
 				seat.setSeatPos(pos);
 				level.addFreshEntity(seat);
 				player.startRiding(seat);

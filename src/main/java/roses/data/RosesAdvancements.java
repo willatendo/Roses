@@ -24,8 +24,8 @@ import net.minecraft.data.DataProvider;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ItemLike;
-import roses.server.RosesRegistry;
 import roses.server.RosesTags;
+import roses.server.block.RosesBlocks;
 
 public class RosesAdvancements implements DataProvider {
 	private static final String LANG = "advancement." + ID + ".";
@@ -37,7 +37,7 @@ public class RosesAdvancements implements DataProvider {
 	}
 
 	public void register(Consumer<Advancement> consumer) {
-		advancement(() -> RosesRegistry.ROSE.getUnchecked(), "root", FrameType.TASK, false, false, false, "has_legacy_content", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(RosesTags.Items.LEGACY_BLOCKS).build()), consumer);
+		advancement(() -> RosesBlocks.ROSE.getUnchecked(), "root", FrameType.TASK, false, false, false, "has_legacy_content", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(RosesTags.Items.LEGACY_BLOCKS).build()), consumer);
 	}
 
 	public void advancement(Supplier<ItemLike> display, String id, FrameType frame, boolean showToast, boolean announceToChat, boolean hidden, String criteria, CriterionTriggerInstance trigger, Consumer<Advancement> consumer) {

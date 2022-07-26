@@ -1,0 +1,8 @@
+{
+	"disc.sound.magnetic_circuit": {
+		"subtitle": "subtitle.disc.magnetic_circuit",
+		"sounds": [
+			"roses:disc.sound.magnetic_circuit"
+		]
+	}
+}

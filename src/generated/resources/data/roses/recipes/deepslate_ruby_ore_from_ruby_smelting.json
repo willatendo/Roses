@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "roses:ruby"
+  },
+  "result": "roses:deepslate_ruby_ore"
+}

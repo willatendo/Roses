@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "cloth",
+  "ingredients": [
+    {
+      "item": "roses:white_cloth"
+    },
+    {
+      "item": "minecraft:green_dye"
+    },
+    {
+      "item": "minecraft:white_dye"
+    }
+  ],
+  "result": {
+    "item": "roses:spring_green_cloth"
+  }
+}

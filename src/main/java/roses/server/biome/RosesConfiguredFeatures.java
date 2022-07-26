@@ -11,8 +11,8 @@ import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConf
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.NoiseProvider;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
-import roses.server.RosesRegistry;
+import roses.server.block.RosesBlocks;
 
 public class RosesConfiguredFeatures {
-	public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> ROSE_AND_CYAN_FLOWER = FeatureUtils.register("rose_and_cyan_flower", Feature.FLOWER, new RandomPatchConfiguration(96, 6, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new NoiseProvider(2345L, new NormalNoise.NoiseParameters(0, 1.0D), 0.020833334F, List.of(RosesRegistry.ROSE.get().defaultBlockState(), RosesRegistry.CYAN_FLOWER.get().defaultBlockState()))))));
+	public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> ROSE_AND_CYAN_FLOWER = FeatureUtils.register("rose_and_cyan_flower", Feature.FLOWER, new RandomPatchConfiguration(96, 6, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new NoiseProvider(2345L, new NormalNoise.NoiseParameters(0, 1.0D), 0.020833334F, List.of(RosesBlocks.ROSE.get().defaultBlockState(), RosesBlocks.CYAN_FLOWER.get().defaultBlockState()))))));
 }
