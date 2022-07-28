@@ -1,4 +1,4 @@
-// 1.19	2022-07-25T22:58:58.92148	Registrate Provider for roses [Recipes, Advancements, Loot tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+// 1.19	2022-07-26T17:09:32.0108285	Registrate Provider for roses [Recipes, Advancements, Loot tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
 f18512b0285375df9d8703d26024cf6141d3dde6 assets/roses/blockstates/acacia_chair.json
 d2d760701b3fac217d982a23c3d9a459cd44775a assets/roses/blockstates/birch_chair.json
 54ca25444689622d35ec498a9749fa517b56d33d assets/roses/blockstates/capri_cloth.json
@@ -206,8 +206,9 @@ ab77aef7b27c43e5fa516297890ba791195262e3 data/roses/recipes/white_cloth.json
 7142ab2c6582e450bc654056d5fb147a4778f3cc data/roses/recipes/yellow_cloth.json
 1133d4b94249291c0e9aa2037ad29a35be5dbde8 data/roses/tags/blocks/chairs.json
 2f3e660b281fdbcc85e1ccee3c4ec2ca052514b6 data/roses/tags/blocks/cloth.json
-f82b253880811c5cf1e15081b36333680d629db6 data/roses/tags/blocks/legacy_blocks.json
+1609c97f9b7054cb93e8aa2966d67c51f44f1813 data/roses/tags/blocks/cogs.json
+77843e1015f95d7c631f5ed4324c34d5765a92c6 data/roses/tags/blocks/legacy_blocks.json
 1133d4b94249291c0e9aa2037ad29a35be5dbde8 data/roses/tags/items/chairs.json
 2f3e660b281fdbcc85e1ccee3c4ec2ca052514b6 data/roses/tags/items/cloth.json
-f82b253880811c5cf1e15081b36333680d629db6 data/roses/tags/items/legacy_blocks.json
+77843e1015f95d7c631f5ed4324c34d5765a92c6 data/roses/tags/items/legacy_blocks.json
 836519e44a469bee7aeb34bd9a9ad1fa00444ae8 data/roses/tags/items/legacy_items.json

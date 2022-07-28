@@ -41,16 +41,16 @@ public class ChairBlock extends HorizontalDirectionalBlock implements SimpleWate
 
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-		return this.SHAPE;
+		return SHAPE;
 	}
 
 	@Override
-	public BlockState updateShape(BlockState state, Direction direction, BlockState newstate, LevelAccessor level, BlockPos pos, BlockPos newpos) {
-		if (state.getValue(WATERLOGGED)) {
-			level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+	public BlockState updateShape(BlockState blockState, Direction direction, BlockState offsetState, LevelAccessor levelAccessor, BlockPos blockPos, BlockPos offsetBlockPos) {
+		if (blockState.getValue(WATERLOGGED)) {
+			levelAccessor.scheduleTick(blockPos, Fluids.WATER, Fluids.WATER.getTickDelay(levelAccessor));
 		}
 
-		return super.updateShape(state, direction, newstate, level, pos, newpos);
+		return super.updateShape(blockState, direction, offsetState, levelAccessor, blockPos, offsetBlockPos);
 	}
 
 	@Nullable

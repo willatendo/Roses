@@ -1,8 +1,7 @@
 package roses.server.block;
 
-import java.util.List;
-
-import org.apache.commons.compress.utils.Lists;
+import java.util.Arrays;
+import java.util.Objects;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -10,10 +9,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.LeverBlock;
 import net.minecraft.world.level.block.MultifaceBlock;
 import net.minecraft.world.level.block.MultifaceSpreader;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
@@ -22,6 +19,8 @@ import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.gameevent.GameEvent.Context;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 import roses.server.game_event.RosesGameEvents;
 
 public class CogBlock extends MultifaceBlock implements SimpleWaterloggedBlock {
@@ -34,73 +33,51 @@ public class CogBlock extends MultifaceBlock implements SimpleWaterloggedBlock {
 	}
 
 	@Override
+	public BlockState getStateForPlacement(BlockPlaceContext blockPlaceContext) {
+		Level level = blockPlaceContext.getLevel();
+		BlockPos blockpos = blockPlaceContext.getClickedPos();
+		BlockState blockstate = level.getBlockState(blockpos);
+		return Arrays.stream(blockPlaceContext.getNearestLookingDirections()).map((direction) -> {
+			return this.getStateForPlacement(blockstate, level, blockpos, direction).setValue(ON, Boolean.valueOf(Boolean.valueOf(level.hasNeighborSignal(blockPlaceContext.getClickedPos()))));
+		}).filter(Objects::nonNull).findFirst().orElse((BlockState) null);
+	}
+
+	@Override
+	public void neighborChanged(BlockState blockState, Level level, BlockPos blockPos, Block neighbourBlock, BlockPos neighbourBlockState, boolean flags) {
+		if (!level.isClientSide()) {
+			boolean flag = blockState.getValue(ON);
+			if (flag != level.hasNeighborSignal(blockPos)) {
+				if (flag) {
+					level.scheduleTick(blockPos, this, 4);
+				} else {
+					level.setBlock(blockPos, blockState.cycle(ON), 2);
+				}
+			}
+		}
+	}
+
+	@Override
 	public void tick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource) {
 		if (blockState.getValue(ON)) {
 			serverLevel.gameEvent(RosesGameEvents.COG_RUMBLES.get(), blockPos, Context.of(blockState));
 		}
-	}
 
-	private void updatePower(Level level, BlockPos blockPos, BlockState blockState) {
-		for (Direction direction : Direction.values()) {
-			BlockState offsetBlockState = level.getBlockState(blockPos.relative(direction));
-			if (offsetBlockState.is(this) && offsetBlockState.getValue(ON)) {
-				level.setBlock(blockPos, blockState.setValue(ON, true), 3);
-				return;
-			}
-
-			if (offsetBlockState.is(this) && !offsetBlockState.getValue(ON)) {
-				level.setBlock(blockPos, blockState.setValue(ON, false), 3);
-				return;
-			}
-
-			if (offsetBlockState.is(Blocks.LEVER) && offsetBlockState.getValue(LeverBlock.POWERED)) {
-				level.setBlock(blockPos, blockState.setValue(ON, true), 3);
-				return;
-			}
-
-			if (offsetBlockState.is(Blocks.LEVER) && !offsetBlockState.getValue(LeverBlock.POWERED)) {
-				level.setBlock(blockPos, blockState.setValue(ON, false), 3);
-				return;
-			}
+		if (blockState.getValue(ON) && !serverLevel.hasNeighborSignal(blockPos)) {
+			serverLevel.setBlock(blockPos, blockState.cycle(ON), 2);
 		}
 	}
 
-	@Override
-	public boolean canSurvive(BlockState blockState, LevelReader levelReader, BlockPos blockPos) {
-		List<Direction> directionsToCheck = Lists.newArrayList();
-
-		for (Direction directions : Direction.Plane.HORIZONTAL) {
-			BlockState blockStateOnOffset = levelReader.getBlockState(blockPos.relative(directions));
-			if (blockStateOnOffset.is(this)) {
-				directionsToCheck.add(directions);
-			}
-		}
-
-		if (directionsToCheck.size() > 2) {
-			if (directionsToCheck.get(0) != null && directionsToCheck.get(2) != null) {
-				if (!(directionsToCheck.get(0).getOpposite() == directionsToCheck.get(2))) {
-					return false;
-				}
-				if (directionsToCheck.size() > 3) {
-					if (!(directionsToCheck.get(1).getOpposite() == directionsToCheck.get(3))) {
-						return false;
-					}
-				}
-			}
-		}
-		return super.canSurvive(blockState, levelReader, blockPos);
+	public FluidState getFluidState(BlockState blockState) {
+		return blockState.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(blockState);
 	}
 
 	@Override
-	public void onPlace(BlockState blockState, Level level, BlockPos blockPos, BlockState offsetBlockState, boolean flags) {
-		this.updatePower(level, blockPos, blockState);
-		super.onPlace(blockState, level, blockPos, offsetBlockState, flags);
-	}
+	public BlockState updateShape(BlockState blockState, Direction direction, BlockState offsetState, LevelAccessor levelAccessor, BlockPos blockPos, BlockPos offsetBlockPos) {
+		if (blockState.getValue(WATERLOGGED)) {
+			levelAccessor.scheduleTick(blockPos, Fluids.WATER, Fluids.WATER.getTickDelay(levelAccessor));
+		}
 
-	@Override
-	public void neighborChanged(BlockState blockState, Level level, BlockPos blockPos, Block block, BlockPos offsetBlockPos, boolean flags) {
-		this.updatePower(level, blockPos, blockState);
-		super.neighborChanged(blockState, level, blockPos, block, offsetBlockPos, flags);
+		return super.updateShape(blockState, direction, offsetState, levelAccessor, blockPos, offsetBlockPos);
 	}
 
 	@Override

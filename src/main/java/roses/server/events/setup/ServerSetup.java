@@ -16,7 +16,7 @@ public class ServerSetup {
 	@EventBusSubscriber(modid = RosesMod.ID, bus = Bus.MOD)
 	static class VanillaMaps {
 		@SubscribeEvent
-		public static void addToMaps(final FMLCommonSetupEvent event) {
+		public static void addToMaps(FMLCommonSetupEvent event) {
 			addToCompostables(0.65F, RosesBlocks.ROSE.get());
 			addToCompostables(0.65F, RosesBlocks.CYAN_FLOWER.get());
 
@@ -28,10 +28,13 @@ public class ServerSetup {
 			addToFlammables(RosesBlocks.JUNGLE_CHAIR.get(), 5, 20);
 			addToFlammables(RosesBlocks.OAK_CHAIR.get(), 5, 20);
 			addToFlammables(RosesBlocks.SPRUCE_CHAIR.get(), 5, 20);
+
+//			SculkSensorBlock.VIBRATION_FREQUENCY_FOR_EVENT = Object2IntMaps.synchronize(SculkSensorBlock.VIBRATION_FREQUENCY_FOR_EVENT);
+//			SculkSensorBlock.VIBRATION_FREQUENCY_FOR_EVENT.put(RosesGameEvents.COG_RUMBLES.get(), 1);
 		}
 
 		private static void addToCompostables(float chance, ItemLike item) {
-			ComposterBlock.COMPOSTABLES.put(item.asItem(), chance);
+			ComposterBlock.COMPOSTABLES.put(item, chance);
 		}
 
 		private static void addToFlammables(Block burnable, int catchFlame, int burn) {

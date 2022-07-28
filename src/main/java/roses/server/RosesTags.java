@@ -25,6 +25,7 @@ public class RosesTags {
 		public static final TagKey<Block> LEGACY_BLOCKS = tag("legacy_blocks");
 		public static final TagKey<Block> CHAIRS = tag("chairs");
 		public static final TagKey<Block> CLOTH = tag("cloth");
+		public static final TagKey<Block> COGS = tag("cogs");
 
 		private static TagKey<Block> tag(String name) {
 			return BlockTags.create(RosesMod.rL(name));
