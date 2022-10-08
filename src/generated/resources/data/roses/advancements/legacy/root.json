@@ -24,7 +24,7 @@
     },
     "show_toast": false,
     "title": {
-      "translate": "advancement.roses.root"
+      "translate": "advancement.roses.root.title"
     }
   },
   "requirements": [

@@ -41,7 +41,7 @@ public class RosesAdvancements implements DataProvider {
 	}
 
 	public void advancement(Supplier<ItemLike> display, String id, FrameType frame, boolean showToast, boolean announceToChat, boolean hidden, String criteria, CriterionTriggerInstance trigger, Consumer<Advancement> consumer) {
-		Advancement.Builder.advancement().display(display.get(), Component.translatable(LANG + id), Component.translatable(LANG + id + ".desc"), new ResourceLocation(ID, "textures/gui/advancements.png"), frame, showToast, announceToChat, hidden).addCriterion(id, trigger).save(consumer, ID + ":" + id);
+		Advancement.Builder.advancement().display(display.get(), Component.translatable(LANG + id + ".title"), Component.translatable(LANG + id + ".desc"), new ResourceLocation(ID, "textures/gui/advancements.png"), frame, showToast, announceToChat, hidden).addCriterion(id, trigger).save(consumer, ID + ":" + id);
 	}
 
 	@Override

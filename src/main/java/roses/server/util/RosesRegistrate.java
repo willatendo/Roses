@@ -45,7 +45,7 @@ public class RosesRegistrate extends AbstractRegistrate<RosesRegistrate> {
 	}
 
 	public void lang() {
-		this.addDataGenerator(ProviderType.LANG, provider -> provider.add("advancement.roses.root", "Legacy Player"));
+		this.addDataGenerator(ProviderType.LANG, provider -> provider.add("advancement.roses.root.title", "Legacy Player"));
 		this.addDataGenerator(ProviderType.LANG, provider -> provider.add("advancement.roses.root.desc", "You've got nostalgia for the rose."));
 	}
 }

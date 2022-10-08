@@ -22,13 +22,13 @@ public class RosesTranslationLanguageProvider extends LanguageProvider {
 	}
 
 	public void addAdvancement(String advancement, String title, String description) {
-		this.add("advancement.lostworlds." + advancement + ".title", title);
-		this.add("advancement.lostworlds." + advancement + ".desc", description);
+		this.add("advancement." + RosesMod.ID + "." + advancement + ".title", title);
+		this.add("advancement." + RosesMod.ID + "." + advancement + ".desc", description);
 	}
 
 	public void addMusicDisc(Supplier<RecordItem> musicDisc, String name, String description) {
 		this.addItem(musicDisc, name);
-		this.add("item.roses." + ForgeRegistries.ITEMS.getKey(musicDisc.get()).getPath() + ".desc", description);
+		this.add("item." + RosesMod.ID + "." + ForgeRegistries.ITEMS.getKey(musicDisc.get()).getPath() + ".desc", description);
 	}
 
 	public static interface AddTranslations {

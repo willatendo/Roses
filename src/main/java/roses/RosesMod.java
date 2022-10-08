@@ -94,6 +94,7 @@ public class RosesMod {
 			provider.addBlock(RosesBlocks.RUBY_BLOCK, "Rubinblock");
 			provider.addBlock(RosesBlocks.COG, "Kugge");
 			provider.add("itemGroup.roses.roses", "Rosaer");
+			provider.addAdvancement("root", "Arv Spelare", "Du har nostalgi för det rosa.");
 		}));
 	}
 
