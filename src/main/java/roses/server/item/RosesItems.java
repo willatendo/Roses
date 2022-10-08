@@ -23,7 +23,7 @@ public class RosesItems {
 	}).register();
 
 	// 4.0.0 Content
-	public static final ItemEntry<RecordItem> MUSIC_DISC_MAGNETIC_CIRCUIT = REGISTRATE.item("music_disc_magnetic_circuit", p -> new RecordItem(1, () -> RosesSounds.MAGNETIC_CIRCUIT.get(), p)).properties(properties -> properties.stacksTo(1).rarity(Rarity.RARE)).lang("Music Disc").addMiscData(ProviderType.LANG, provider -> provider.add("item.roses.music_disc_magnetic_circuit.desc", "Notch - Magnetic Circuit")).register();
+	public static final ItemEntry<RecordItem> MUSIC_DISC_MAGNETIC_CIRCUIT = REGISTRATE.item("music_disc_magnetic_circuit", p -> new RecordItem(1, () -> RosesSounds.MAGNETIC_CIRCUIT.get(), p, 3860)).properties(properties -> properties.stacksTo(1).rarity(Rarity.RARE)).lang("Music Disc").addMiscData(ProviderType.LANG, provider -> provider.add("item.roses.music_disc_magnetic_circuit.desc", "Notch - Magnetic Circuit")).register();
 
 	public static void init() {
 	}

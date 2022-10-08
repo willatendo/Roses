@@ -1,11 +1,11 @@
 modLoader="javafml"
-loaderVersion="[41,)"
+loaderVersion="[43,)"
 license="MIT"
 issueTrackerURL="https://github.com/willatendo/Roses-Forge/issues"
 
 [[mods]]
 modId="roses"
-version="4.0.0"
+version="4.1.0"
 displayName="Roses"
 updateJSONURL="https://github.com/willatendo/Roses-Forge/raw/main/updates.json"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/roses-forge"
@@ -18,13 +18,13 @@ Brings the past back!
 [[dependencies.roses]]
     modId="forge"
     mandatory=true
-    versionRange="[41,)"
+    versionRange="[43,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.roses]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19,1.20)"
+    versionRange="[1.19.2,1.20)"
     ordering="NONE"
     side="BOTH"

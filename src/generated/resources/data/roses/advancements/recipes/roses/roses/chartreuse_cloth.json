@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "roses:chartruese_cloth"
+        "recipe": "roses:chartreuse_cloth"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "roses:chartruese_cloth"
+      "roses:chartreuse_cloth"
     ]
   }
 }

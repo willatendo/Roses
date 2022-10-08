@@ -13,6 +13,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import roses.data.RosesAdvancements;
 import roses.data.RosesBiomeTags;
 import roses.data.RosesGameEventsTags;
+import roses.data.RosesTranslationLanguageProvider;
 import roses.server.biome.RosesBiomeModifierSerializers;
 import roses.server.block.RosesBlocks;
 import roses.server.entity.RosesEntities;
@@ -58,6 +59,42 @@ public class RosesMod {
 		dataGenerator.addProvider(true, new RosesAdvancements(dataGenerator));
 		dataGenerator.addProvider(true, new RosesBiomeTags(dataGenerator, existingFileHelper));
 		dataGenerator.addProvider(true, new RosesGameEventsTags(dataGenerator, existingFileHelper));
+		dataGenerator.addProvider(true, new RosesTranslationLanguageProvider(dataGenerator, "sv_se", provider -> {
+			provider.addItem(RosesItems.RUBY, "Rubin");
+			provider.addMusicDisc(RosesItems.MUSIC_DISC_MAGNETIC_CIRCUIT, "Musikskiva", "Notch - Magnetic Circuit");
+			provider.addBlock(RosesBlocks.ROSE, "Rosa");
+			provider.addBlock(RosesBlocks.CYAN_FLOWER, "Turkosblomma");
+			provider.addBlock(RosesBlocks.CAPRI_CLOTH, "Turkosazurtyg");
+			provider.addBlock(RosesBlocks.CHARTREUSE_CLOTH, "Chartreusetyg");
+			provider.addBlock(RosesBlocks.CYAN_CLOTH, "Turkostyg");
+			provider.addBlock(RosesBlocks.DARK_GRAY_CLOTH, "Mörkgråtyg");
+			provider.addBlock(RosesBlocks.GREEN_CLOTH, "Gröntyg");
+			provider.addBlock(RosesBlocks.LIGHT_GRAY_CLOTH, "Lättgråtyg");
+			provider.addBlock(RosesBlocks.MAGNETA_CLOTH, "Ljuslilatyg");
+			provider.addBlock(RosesBlocks.ORANGE_CLOTH, "Orangetyg");
+			provider.addBlock(RosesBlocks.PURPLE_CLOTH, "Lilatyg");
+			provider.addBlock(RosesBlocks.RED_CLOTH, "Rödtyg");
+			provider.addBlock(RosesBlocks.ROSE_CLOTH, "Rosatyg");
+			provider.addBlock(RosesBlocks.SPRING_GREEN_CLOTH, "Vårgröntyg");
+			provider.addBlock(RosesBlocks.ULTRAMARINE_CLOTH, "Ultramarintyg");
+			provider.addBlock(RosesBlocks.VIOLET_CLOTH, "Violetttyg");
+			provider.addBlock(RosesBlocks.WHITE_CLOTH, "Vittyg");
+			provider.addBlock(RosesBlocks.YELLOW_CLOTH, "Gultyg");
+			provider.addBlock(RosesBlocks.ACACIA_CHAIR, "Akaciastol");
+			provider.addBlock(RosesBlocks.BIRCH_CHAIR, "Björkstol");
+			provider.addBlock(RosesBlocks.CRIMSON_CHAIR, "Karmosinstol");
+			provider.addBlock(RosesBlocks.DARK_OAK_CHAIR, "Mörka Ekstol");
+			provider.addBlock(RosesBlocks.JUNGLE_CHAIR, "Djungelstol");
+			provider.addBlock(RosesBlocks.MANGROVE_CHAIR, "Mangrovestol");
+			provider.addBlock(RosesBlocks.OAK_CHAIR, "Ekstol");
+			provider.addBlock(RosesBlocks.SPRUCE_CHAIR, "Granstol");
+			provider.addBlock(RosesBlocks.WARPED_CHAIR, "Förvrängda stol");
+			provider.addBlock(RosesBlocks.RUBY_ORE, "Rubinmalm");
+			provider.addBlock(RosesBlocks.DEEPSLATE_RUBY_ORE, "Djupskifferinbäddad rubinmalm");
+			provider.addBlock(RosesBlocks.RUBY_BLOCK, "Rubinblock");
+			provider.addBlock(RosesBlocks.COG, "Kugge");
+			provider.add("itemGroup.roses.roses", "Rosaer");
+		}));
 	}
 
 	public static ResourceLocation rL(String path) {
