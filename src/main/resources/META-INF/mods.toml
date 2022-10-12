@@ -5,12 +5,13 @@ issueTrackerURL="https://github.com/willatendo/Roses-Forge/issues"
 
 [[mods]]
 modId="roses"
-version="4.1.1"
+version="4.1.2"
 displayName="Roses"
 updateJSONURL="https://github.com/willatendo/Roses-Forge/raw/main/updates.json"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/roses-forge"
 logoFile="roses.png"
 authors="Willatendo"
+credits="junshengxi - Simplified Chinese"
 description='''
 Brings the past back!
 '''
