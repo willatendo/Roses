@@ -1,101 +1,81 @@
 plugins {
-    id 'eclipse'
-    id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '5.1.+'
-	id 'com.github.johnrengelman.shadow' version '7.1.0'
+	id 'eclipse'
+	id 'idea'
+	id 'maven-publish'
+	id 'net.minecraftforge.gradle' version '[6.0,6.2)'
 }
 
-apply from: 'https://raw.githubusercontent.com/SizableShrimp/Forge-Class-Remapper/main/classremapper.gradle'
+version = "0.0.1"
+group = mod_id
 
-configurations {
-	shade
+jarJar.enable()
+
+base {
+	archivesName = mod_id
 }
-
-version = '4.1.1'
-group = 'roses'
-archivesBaseName = 'roses'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
-	mappings channel: 'official', version: minecraft_version
-	
-	accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
-	
-	runs {
-		client {
-			workingDirectory project.file('run')
+	mappings channel: "official", version: minecraft_version
 
+	copyIdeResources = true
+
+	runs {
+		configureEach {
+			workingDirectory project.file('run')
+			
 			mods {
-				roses {
+				"${mod_id}" {
 					source sourceSets.main
 				}
 			}
 		}
-			
+
+		client {
+		}
+
 		data {
-			workingDirectory project.file('run')
-			
-			args '--mod', 'roses', '--all', '--existing', file('src/main/resources').toString(), '--existing', file('src/generated/resources').toString(), '--output', file('src/generated/resources/')
-					
-			mods {
-				roses {
-					sourceSets.main
-				}
-			}
+			workingDirectory project.file('run-data')
+
+			args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 		}
 	}
 }
 
-sourceSets.main.resources {
-    srcDir 'src/generated/resources'
+sourceSets.main.resources { 
+	srcDir 'src/generated/resources' 
 }
-	
+
 repositories {
-	maven {
-		url "https://www.cursemaven.com"
-		content {
-			includeGroup "curse.maven"
-		}
-	}
-	maven { // Registrate
-		url "https://maven.tterrag.com/"
-	}
+	maven { url "https://jitpack.io" }
 }
 
 dependencies {
 	minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 	
-	def registrate = "com.tterrag.registrate:Registrate:MC${major_version}-${registrate_version}"
-	implementation fg.deobf(registrate)
-	shade registrate
-}
-
-jar {
-	manifest {
-		attributes([
-			"Specification-Title": "roses",
-			"Specification-Vendor": "Willatendo",
-			"Specification-Version": "4.1.2",
-			"Implementation-Title": project.name,
-			"Implementation-Version": "${version}",
-			"Implementation-Vendor" :"Willatendo",
-			"Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-		])
-	}
-}
-
-shadowJar {
-	classifier = ''
-	configurations = [project.configurations.shade]
-	relocate 'com.tterrag.registrate', 'roses.repack.registrate'
+	implementation fg.deobf("com.github.willatendo:Simple-Library:${simple_library_version}")
+	jarJar(group: 'com.github.willatendo', name: 'Simple-Library', version: "[v0.3.0-beta,v0.4.0-beta)")
 }
 
 reobf {
-	shadowJar {}
+	jarJar { }
 }
 
-build.dependsOn shadowJar
-build.dependsOn reobfShadowJar
+tasks.jarJar.finalizedBy('reobfJarJar')
 
-jar.finalizedBy('reobfJar')
+tasks.named('jar', Jar).configure {
+	manifest {
+		attributes([
+				'Specification-Title' : mod_id,
+				'Specification-Vendor' : "Willatendo",
+				'Specification-Version' : '1',
+				'Implementation-Title' : project.name,
+				'Implementation-Version' : project.jar.archiveVersion,
+				'Implementation-Vendor' : "Willatendo",
+				'Implementation-Timestamp' : new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+		])
+	}
+
+	finalizedBy 'reobfJar'
+}

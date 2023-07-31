@@ -1,0 +1,6 @@
+{
+  "parent": "roses:block/template_chair",
+  "textures": {
+    "wood": "minecraft:block/bamboo_planks"
+  }
+}
