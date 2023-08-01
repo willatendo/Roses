@@ -18,6 +18,6 @@ public class RosesItems {
 	public static final RegistryObject<RecordItem> MUSIC_DISC_MAGNETIC_CIRCUIT = ITEMS.register("music_disc_magnetic_circuit", () -> new RecordItem(1, () -> RosesSounds.MAGNETIC_CIRCUIT.get(), new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 3860));
 
 	static {
-		SimpleUtils.registerAllItems(RosesItems.ITEMS, RosesBlocks.BLOCKS);
+		SimpleUtils.registerAllItems(RosesItems.ITEMS, RosesBlocks.BLOCKS, RosesBlocks.POTTED_ROSE, RosesBlocks.POTTED_CYAN_FLOWER);
 	}
 }

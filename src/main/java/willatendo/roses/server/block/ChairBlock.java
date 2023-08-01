@@ -30,7 +30,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import willatendo.roses.server.entity.Chair;
 import willatendo.roses.server.entity.RosesEntities;
 
-public class ChairBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock, BurningBlock {
+public class ChairBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
 	private static final VoxelShape SHAPE = Block.box(2, 0, 2, 14, 16, 14);
 	private static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
@@ -86,12 +86,8 @@ public class ChairBlock extends HorizontalDirectionalBlock implements SimpleWate
 		if (blockReachDistance == 0) {
 			return playerPos.getY() - blockPos.getY() <= 1 && playerPos.getX() - blockPos.getX() == 0 && playerPos.getZ() - blockPos.getZ() == 0;
 		}
-		
-//		blockPos = blockPos.offset(0.5D, 0.5D, 0.5D);
 
 		AABB range = new AABB(blockPos.getX() + blockReachDistance, blockPos.getY() + blockReachDistance, blockPos.getZ() + blockReachDistance, blockPos.getX() - blockReachDistance, blockPos.getY() - blockReachDistance, blockPos.getZ() - blockReachDistance);
-
-//		playerPos = playerPos.offset(0.5D, 0.5D, 0.5D);
 		return range.minX <= playerPos.getX() && range.minY <= playerPos.getY() && range.minZ <= playerPos.getZ() && range.maxX >= playerPos.getX() && range.maxY >= playerPos.getY() && range.maxZ >= playerPos.getZ();
 	}
 
@@ -105,11 +101,6 @@ public class ChairBlock extends HorizontalDirectionalBlock implements SimpleWate
 			entity.remove(Entity.RemovalReason.DISCARDED);
 		}
 		super.onRemove(blockState, level, blockPos, newState, isMoving);
-	}
-
-	@Override
-	public int getBurnTime() {
-		return 300;
 	}
 
 	@Override

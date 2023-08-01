@@ -1,4 +1,4 @@
-package willatendo.roses.server.events.setup;
+package willatendo.roses.server.events;
 
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;

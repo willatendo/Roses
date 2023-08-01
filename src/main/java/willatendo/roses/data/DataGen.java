@@ -11,6 +11,6 @@ import willatendo.simplelibrary.data.DataHelper;
 public class DataGen {
 	@SubscribeEvent
 	public static void gatherData(GatherDataEvent event) {
-		DataHelper.collectAllData(RosesUtils.ID, event, RosesLanguageProvider::new).addBlockStateProvider(RosesBlockStateProvider::new).addItemModelProvider(RosesItemModelProvider::new);
+		DataHelper.collectAllData(RosesUtils.ID, event, RosesLanguageProvider::new).addBlockStateProvider(RosesBlockStateProvider::new).addItemModelProvider(RosesItemModelProvider::new).addRecipeProvider(RosesRecipeProvider::new).addLootProvider(RosesLootTableProvider::create);
 	}
 }
