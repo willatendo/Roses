@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/sculk_vein",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "particle": "roses:block/cog",
-    "sculk_vein": "roses:block/cog"
-  }
-}

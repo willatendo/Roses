@@ -44,6 +44,17 @@ public class RosesItemModelProvider extends SimpleItemModelProvider {
 		this.basicBlock(RosesBlocks.MANGROVE_CHAIR.get());
 		this.basicBlock(RosesBlocks.CHERRY_CHAIR.get());
 		this.basicBlock(RosesBlocks.BAMBOO_CHAIR.get());
+		this.basicBlock(RosesBlocks.OAK_TABLE.get());
+		this.basicBlock(RosesBlocks.SPRUCE_TABLE.get());
+		this.basicBlock(RosesBlocks.BIRCH_TABLE.get());
+		this.basicBlock(RosesBlocks.JUNGLE_TABLE.get());
+		this.basicBlock(RosesBlocks.ACACIA_TABLE.get());
+		this.basicBlock(RosesBlocks.DARK_OAK_TABLE.get());
+		this.basicBlock(RosesBlocks.CRIMSON_TABLE.get());
+		this.basicBlock(RosesBlocks.WARPED_TABLE.get());
+		this.basicBlock(RosesBlocks.MANGROVE_TABLE.get());
+		this.basicBlock(RosesBlocks.CHERRY_TABLE.get());
+		this.basicBlock(RosesBlocks.BAMBOO_TABLE.get());
 		this.basicBlock(RosesBlocks.RUBY_ORE.get());
 		this.basicBlock(RosesBlocks.DEEPSLATE_RUBY_ORE.get());
 		this.basicBlock(RosesBlocks.RUBY_BLOCK.get());

@@ -47,6 +47,17 @@ public class RosesLanguageProvider extends SimpleLanguageProvider {
 		this.add(RosesBlocks.MANGROVE_CHAIR.get());
 		this.add(RosesBlocks.CHERRY_CHAIR.get());
 		this.add(RosesBlocks.BAMBOO_CHAIR.get());
+		this.add(RosesBlocks.OAK_TABLE.get());
+		this.add(RosesBlocks.SPRUCE_TABLE.get());
+		this.add(RosesBlocks.BIRCH_TABLE.get());
+		this.add(RosesBlocks.JUNGLE_TABLE.get());
+		this.add(RosesBlocks.ACACIA_TABLE.get());
+		this.add(RosesBlocks.DARK_OAK_TABLE.get());
+		this.add(RosesBlocks.CRIMSON_TABLE.get());
+		this.add(RosesBlocks.WARPED_TABLE.get());
+		this.add(RosesBlocks.MANGROVE_TABLE.get());
+		this.add(RosesBlocks.CHERRY_TABLE.get());
+		this.add(RosesBlocks.BAMBOO_TABLE.get());
 		this.add(RosesBlocks.RUBY_ORE.get());
 		this.add(RosesBlocks.DEEPSLATE_RUBY_ORE.get());
 		this.add(RosesBlocks.RUBY_BLOCK.get(), "Block of Ruby");

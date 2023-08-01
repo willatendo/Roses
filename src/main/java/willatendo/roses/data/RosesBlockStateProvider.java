@@ -43,6 +43,17 @@ public class RosesBlockStateProvider extends BlockStateProvider {
 		this.horizontalBlock(RosesBlocks.MANGROVE_CHAIR.get(), blockState -> this.models().withExistingParent("mangrove_chair", this.modLoc("block/template_chair")).texture("wood", this.mcLoc("block/mangrove_planks")));
 		this.horizontalBlock(RosesBlocks.CHERRY_CHAIR.get(), blockState -> this.models().withExistingParent("cherry_chair", this.modLoc("block/template_chair")).texture("wood", this.mcLoc("block/cherry_planks")));
 		this.horizontalBlock(RosesBlocks.BAMBOO_CHAIR.get(), blockState -> this.models().withExistingParent("bamboo_chair", this.modLoc("block/template_chair")).texture("wood", this.mcLoc("block/bamboo_planks")));
+		this.simpleBlock(RosesBlocks.OAK_TABLE.get(), this.models().withExistingParent("oak_table", this.modLoc("block/template_table")).texture("wood", this.mcLoc("block/oak_planks")));
+		this.simpleBlock(RosesBlocks.SPRUCE_TABLE.get(), this.models().withExistingParent("spruce_table", this.modLoc("block/template_table")).texture("wood", this.mcLoc("block/spruce_planks")));
+		this.simpleBlock(RosesBlocks.BIRCH_TABLE.get(), this.models().withExistingParent("birch_table", this.modLoc("block/template_table")).texture("wood", this.mcLoc("block/birch_planks")));
+		this.simpleBlock(RosesBlocks.JUNGLE_TABLE.get(), this.models().withExistingParent("jungle_table", this.modLoc("block/template_table")).texture("wood", this.mcLoc("block/jungle_planks")));
+		this.simpleBlock(RosesBlocks.ACACIA_TABLE.get(), this.models().withExistingParent("acacia_table", this.modLoc("block/template_table")).texture("wood", this.mcLoc("block/acacia_planks")));
+		this.simpleBlock(RosesBlocks.DARK_OAK_TABLE.get(), this.models().withExistingParent("dark_oak_table", this.modLoc("block/template_table")).texture("wood", this.mcLoc("block/dark_oak_planks")));
+		this.simpleBlock(RosesBlocks.CRIMSON_TABLE.get(), this.models().withExistingParent("crimson_table", this.modLoc("block/template_table")).texture("wood", this.mcLoc("block/crimson_planks")));
+		this.simpleBlock(RosesBlocks.WARPED_TABLE.get(), this.models().withExistingParent("warped_table", this.modLoc("block/template_table")).texture("wood", this.mcLoc("block/warped_planks")));
+		this.simpleBlock(RosesBlocks.MANGROVE_TABLE.get(), this.models().withExistingParent("mangrove_table", this.modLoc("block/template_table")).texture("wood", this.mcLoc("block/mangrove_planks")));
+		this.simpleBlock(RosesBlocks.CHERRY_TABLE.get(), this.models().withExistingParent("cherry_table", this.modLoc("block/template_table")).texture("wood", this.mcLoc("block/cherry_planks")));
+		this.simpleBlock(RosesBlocks.BAMBOO_TABLE.get(), this.models().withExistingParent("bamboo_table", this.modLoc("block/template_table")).texture("wood", this.mcLoc("block/bamboo_planks")));
 		this.simpleBlock(RosesBlocks.RUBY_ORE.get());
 		this.simpleBlock(RosesBlocks.DEEPSLATE_RUBY_ORE.get());
 		this.simpleBlock(RosesBlocks.RUBY_BLOCK.get());

@@ -18,7 +18,9 @@ public class RosesBlockLoot extends BlockLootSubProvider {
 	@Override
 	protected void generate() {
 		this.dropSelf(RosesBlocks.ROSE.get());
+		this.dropPottedContents(RosesBlocks.POTTED_ROSE.get());
 		this.dropSelf(RosesBlocks.CYAN_FLOWER.get());
+		this.dropPottedContents(RosesBlocks.POTTED_CYAN_FLOWER.get());
 		this.dropSelf(RosesBlocks.CAPRI_CLOTH.get());
 		this.dropSelf(RosesBlocks.CHARTREUSE_CLOTH.get());
 		this.dropSelf(RosesBlocks.CYAN_CLOTH.get());
@@ -46,6 +48,17 @@ public class RosesBlockLoot extends BlockLootSubProvider {
 		this.dropSelf(RosesBlocks.MANGROVE_CHAIR.get());
 		this.dropSelf(RosesBlocks.CHERRY_CHAIR.get());
 		this.dropSelf(RosesBlocks.BAMBOO_CHAIR.get());
+		this.dropSelf(RosesBlocks.OAK_TABLE.get());
+		this.dropSelf(RosesBlocks.SPRUCE_TABLE.get());
+		this.dropSelf(RosesBlocks.BIRCH_TABLE.get());
+		this.dropSelf(RosesBlocks.JUNGLE_TABLE.get());
+		this.dropSelf(RosesBlocks.ACACIA_TABLE.get());
+		this.dropSelf(RosesBlocks.DARK_OAK_TABLE.get());
+		this.dropSelf(RosesBlocks.CRIMSON_TABLE.get());
+		this.dropSelf(RosesBlocks.WARPED_TABLE.get());
+		this.dropSelf(RosesBlocks.MANGROVE_TABLE.get());
+		this.dropSelf(RosesBlocks.CHERRY_TABLE.get());
+		this.dropSelf(RosesBlocks.BAMBOO_TABLE.get());
 		this.dropSelf(RosesBlocks.RUBY_ORE.get());
 		this.dropSelf(RosesBlocks.DEEPSLATE_RUBY_ORE.get());
 		this.dropSelf(RosesBlocks.RUBY_BLOCK.get());

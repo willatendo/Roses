@@ -1,0 +1,6 @@
+{
+  "parent": "roses:block/template_table",
+  "textures": {
+    "wood": "minecraft:block/mangrove_planks"
+  }
+}

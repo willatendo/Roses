@@ -38,6 +38,17 @@ public class RosesRecipeProvider extends RecipeProvider {
 		chair(consumer, RosesBlocks.MANGROVE_CHAIR.get(), Blocks.MANGROVE_PLANKS);
 		chair(consumer, RosesBlocks.CHERRY_CHAIR.get(), Blocks.CHERRY_PLANKS);
 		chair(consumer, RosesBlocks.BAMBOO_CHAIR.get(), Blocks.BAMBOO_PLANKS, Items.BAMBOO);
+		table(consumer, RosesBlocks.OAK_TABLE.get(), Blocks.OAK_PLANKS);
+		table(consumer, RosesBlocks.SPRUCE_TABLE.get(), Blocks.SPRUCE_PLANKS);
+		table(consumer, RosesBlocks.BIRCH_TABLE.get(), Blocks.BIRCH_PLANKS);
+		table(consumer, RosesBlocks.JUNGLE_TABLE.get(), Blocks.JUNGLE_PLANKS);
+		table(consumer, RosesBlocks.ACACIA_TABLE.get(), Blocks.ACACIA_PLANKS);
+		table(consumer, RosesBlocks.DARK_OAK_TABLE.get(), Blocks.DARK_OAK_PLANKS);
+		table(consumer, RosesBlocks.CRIMSON_TABLE.get(), Blocks.CRIMSON_PLANKS);
+		table(consumer, RosesBlocks.WARPED_TABLE.get(), Blocks.WARPED_PLANKS);
+		table(consumer, RosesBlocks.MANGROVE_TABLE.get(), Blocks.MANGROVE_PLANKS);
+		table(consumer, RosesBlocks.CHERRY_TABLE.get(), Blocks.CHERRY_PLANKS);
+		table(consumer, RosesBlocks.BAMBOO_TABLE.get(), Blocks.BAMBOO_PLANKS, Items.BAMBOO);
 		ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, RosesBlocks.COG.get()).pattern(" # ").pattern("# #").pattern(" # ").define('#', Items.IRON_INGOT).unlockedBy(getHasName(Items.IRON_INGOT), has(Items.IRON_INGOT)).save(consumer, RosesUtils.resource(getSimpleRecipeName(RosesBlocks.COG.get())));
 	}
 
@@ -46,6 +57,14 @@ public class RosesRecipeProvider extends RecipeProvider {
 	}
 
 	public static void chair(Consumer<FinishedRecipe> consumer, Block chair, Block planks, Item stick) {
-		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, chair).pattern("#  ").pattern("###").pattern("@ @").define('#', planks).define('@', stick).unlockedBy(getHasName(planks), has(planks)).save(consumer, RosesUtils.resource(getSimpleRecipeName(chair)));
+		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, chair).pattern("#  ").pattern("###").pattern("@ @").define('#', planks).define('@', stick).group("chair").unlockedBy(getHasName(planks), has(planks)).save(consumer, RosesUtils.resource(getSimpleRecipeName(chair)));
+	}
+
+	public static void table(Consumer<FinishedRecipe> consumer, Block table, Block planks) {
+		table(consumer, table, planks, Items.STICK);
+	}
+
+	public static void table(Consumer<FinishedRecipe> consumer, Block table, Block planks, Item stick) {
+		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, table).pattern("###").pattern("@@@").pattern("@ @").define('#', planks).define('@', stick).group("table").unlockedBy(getHasName(planks), has(planks)).save(consumer, RosesUtils.resource(getSimpleRecipeName(table)));
 	}
 }

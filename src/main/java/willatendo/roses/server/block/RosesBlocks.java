@@ -53,6 +53,17 @@ public class RosesBlocks {
 	public static final RegistryObject<ChairBlock> MANGROVE_CHAIR = BLOCKS.register("mangrove_chair", chair(() -> Blocks.MANGROVE_PLANKS));
 	public static final RegistryObject<ChairBlock> CHERRY_CHAIR = BLOCKS.register("cherry_chair", chair(() -> Blocks.CHERRY_PLANKS));
 	public static final RegistryObject<ChairBlock> BAMBOO_CHAIR = BLOCKS.register("bamboo_chair", chair(() -> Blocks.BAMBOO_PLANKS));
+	public static final RegistryObject<TableBlock> OAK_TABLE = BLOCKS.register("oak_table", table(() -> Blocks.OAK_PLANKS));
+	public static final RegistryObject<TableBlock> SPRUCE_TABLE = BLOCKS.register("spruce_table", table(() -> Blocks.SPRUCE_PLANKS));
+	public static final RegistryObject<TableBlock> BIRCH_TABLE = BLOCKS.register("birch_table", table(() -> Blocks.BIRCH_PLANKS));
+	public static final RegistryObject<TableBlock> JUNGLE_TABLE = BLOCKS.register("jungle_table", table(() -> Blocks.JUNGLE_PLANKS));
+	public static final RegistryObject<TableBlock> ACACIA_TABLE = BLOCKS.register("acacia_table", table(() -> Blocks.ACACIA_PLANKS));
+	public static final RegistryObject<TableBlock> DARK_OAK_TABLE = BLOCKS.register("dark_oak_table", table(() -> Blocks.DARK_OAK_PLANKS));
+	public static final RegistryObject<TableBlock> CRIMSON_TABLE = BLOCKS.register("crimson_table", table(() -> Blocks.CRIMSON_PLANKS));
+	public static final RegistryObject<TableBlock> WARPED_TABLE = BLOCKS.register("warped_table", table(() -> Blocks.WARPED_PLANKS));
+	public static final RegistryObject<TableBlock> MANGROVE_TABLE = BLOCKS.register("mangrove_table", table(() -> Blocks.MANGROVE_PLANKS));
+	public static final RegistryObject<TableBlock> CHERRY_TABLE = BLOCKS.register("cherry_table", table(() -> Blocks.CHERRY_PLANKS));
+	public static final RegistryObject<TableBlock> BAMBOO_TABLE = BLOCKS.register("bamboo_table", table(() -> Blocks.BAMBOO_PLANKS));
 	public static final RegistryObject<DropExperienceBlock> RUBY_ORE = BLOCKS.register("ruby_ore", () -> new DropExperienceBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(3.0F, 3.0F), UniformInt.of(3, 7)));
 	public static final RegistryObject<DropExperienceBlock> DEEPSLATE_RUBY_ORE = BLOCKS.register("deepslate_ruby_ore", () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(RosesBlocks.RUBY_ORE.get()).mapColor(MapColor.DEEPSLATE).strength(4.5F, 3.0F).sound(SoundType.DEEPSLATE), UniformInt.of(3, 7)));
 	public static final RegistryObject<Block> RUBY_BLOCK = BLOCKS.register("ruby_block", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).instrument(NoteBlockInstrument.BIT).requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL)));
@@ -60,5 +71,9 @@ public class RosesBlocks {
 
 	public static Supplier<ChairBlock> chair(Supplier<Block> base) {
 		return () -> new ChairBlock(BlockBehaviour.Properties.copy(base.get()));
+	}
+
+	public static Supplier<TableBlock> table(Supplier<Block> base) {
+		return () -> new TableBlock(BlockBehaviour.Properties.copy(base.get()));
 	}
 }
