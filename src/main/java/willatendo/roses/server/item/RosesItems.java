@@ -6,8 +6,8 @@ import net.minecraft.world.item.RecordItem;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import willatendo.roses.client.sound.RosesSounds;
 import willatendo.roses.server.block.RosesBlocks;
-import willatendo.roses.server.sound.RosesSounds;
 import willatendo.roses.server.util.RosesUtils;
 import willatendo.simplelibrary.server.util.SimpleUtils;
 

@@ -1,4 +1,4 @@
-package willatendo.roses.server.sound;
+package willatendo.roses.client.sound;
 
 import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.registries.DeferredRegister;

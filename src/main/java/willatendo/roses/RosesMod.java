@@ -3,12 +3,12 @@ package willatendo.roses;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import willatendo.roses.client.sound.RosesSounds;
 import willatendo.roses.server.RosesCreativeModeTabs;
 import willatendo.roses.server.block.RosesBlocks;
 import willatendo.roses.server.entity.RosesEntities;
 import willatendo.roses.server.game_event.RosesGameEvents;
 import willatendo.roses.server.item.RosesItems;
-import willatendo.roses.server.sound.RosesSounds;
 import willatendo.roses.server.util.RosesUtils;
 import willatendo.simplelibrary.server.util.SimpleUtils;
 
