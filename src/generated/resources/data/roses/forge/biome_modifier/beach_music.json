@@ -1,0 +1,10 @@
+{
+  "type": "roses:change_music",
+  "biomes": "#roses:uses_music/beach_music",
+  "music": {
+    "max_delay": 24000,
+    "min_delay": 12000,
+    "replace_current_music": true,
+    "sound": "roses:music.sound.beach"
+  }
+}

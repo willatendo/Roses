@@ -1,1 +1,6 @@
-// 1.20.1	2023-08-01T16:45:53.2799796	Tags for minecraft:block mod id roses
+// 1.20.1	2023-08-02T16:50:03.2790002	Tags for minecraft:block mod id roses
+6cbbe9d1e61baeb283b840c65c3f657f12b9a676 data/roses/tags/blocks/chairs.json
+321d1aa44c855c24adbe6d854b86c769d3cf6e86 data/roses/tags/blocks/cloth.json
+1609c97f9b7054cb93e8aa2966d67c51f44f1813 data/roses/tags/blocks/cogs.json
+39b36e27bc6b29f4731d4446864e963bf07bee01 data/roses/tags/blocks/legacy_blocks.json
+5fe4519a2ee78f3447441ea4ee0a932d3938968f data/roses/tags/blocks/tables.json

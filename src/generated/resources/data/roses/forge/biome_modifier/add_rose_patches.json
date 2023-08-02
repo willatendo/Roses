@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#roses:has_rose",
+  "features": "roses:rose_patch",
+  "step": "vegetal_decoration"
+}

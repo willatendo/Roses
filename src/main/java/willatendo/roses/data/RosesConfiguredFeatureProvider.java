@@ -40,6 +40,7 @@ public class RosesConfiguredFeatureProvider extends SimpleConfiguredFeatureProvi
 		feature.add("feature", features);
 		JsonArray placement = new JsonArray();
 		JsonObject type = new JsonObject();
+		type.addProperty("type", "minecraft:block_predicate_filter");
 		JsonObject predicate = new JsonObject();
 		predicate.addProperty("type", "minecraft:matching_blocks");
 		predicate.addProperty("blocks", "minecraft:air");
