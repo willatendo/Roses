@@ -11,6 +11,6 @@ import willatendo.simplelibrary.data.DataHelper;
 public class DataGen {
 	@SubscribeEvent
 	public static void gatherData(GatherDataEvent event) {
-		DataHelper.collectAllData(RosesUtils.ID, event, RosesLanguageProvider::new).addBlockStateProvider(RosesBlockStateProvider::new).addItemModelProvider(RosesItemModelProvider::new).addSoundDefinitionProvider(RosesSoundDefinitionsProvider::new).addBasicTagProviders(RosesItemTagsProvider::new, RosesBlockTagsProvider::new).addBiomeTagProvider(RosesBiomeTagsProvider::new).addRecipeProvider(RosesRecipeProvider::new).addLootProvider(RosesLootTableProvider::create).addGeneric(RosesConfiguredFeatureProvider::new).addGeneric(RosesPlacedFeatureProvider::new).addGeneric(RosesBiomeModificationProvider::new);
+		DataHelper.collectAllData(RosesUtils.ID, event, RosesLanguageProvider::new).addBlockStateProvider(RosesBlockStateProvider::new).addItemModelProvider(RosesItemModelProvider::new).addSoundDefinitionProvider(RosesSoundDefinitionsProvider::new).addBasicTagProviders(RosesItemTagsProvider::new, RosesBlockTagsProvider::new).addBiomeTagProvider(RosesBiomeTagsProvider::new).addGeneric((packOutput, modid, existingFileHelper) -> new RosesGameEventTagsProvider(packOutput, event.getLookupProvider(), modid, existingFileHelper)).addRecipeProvider(RosesRecipeProvider::new).addLootProvider(RosesLootTableProvider::create).addGeneric(RosesConfiguredFeatureProvider::new).addGeneric(RosesPlacedFeatureProvider::new).addGeneric(RosesBiomeModificationProvider::new);
 	}
 }

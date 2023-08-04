@@ -1,15 +1,22 @@
 package willatendo.roses.server.block;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -23,12 +30,14 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.gameevent.GameEvent.Context;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import willatendo.roses.server.game_event.RosesGameEvents;
+import willatendo.roses.server.util.RosesUtils;
 
 public class CogBlock extends Block implements SimpleWaterloggedBlock {
 	private static final VoxelShape UP_SHAPE = Block.box(0.0D, 15.0D, 0.0D, 16.0D, 16.0D, 16.0D);
@@ -49,14 +58,23 @@ public class CogBlock extends Block implements SimpleWaterloggedBlock {
 	protected static final Direction[] DIRECTIONS = Direction.values();
 	private final ImmutableMap<BlockState, VoxelShape> shapesCache;
 
-	public static final IntegerProperty POWER = BlockStateProperties.POWER;
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-	public static final BooleanProperty ON = BooleanProperty.create("on");
 
 	public CogBlock(Properties properties) {
 		super(properties);
 		this.shapesCache = this.getShapeForEachState(CogBlock::calculateMultifaceShape);
-		this.registerDefaultState(getDefaultMultifaceState(this.stateDefinition).setValue(ON, Boolean.valueOf(false)).setValue(POWER, 0).setValue(WATERLOGGED, Boolean.valueOf(false)));
+		this.registerDefaultState(getDefaultMultifaceState(this.stateDefinition).setValue(WATERLOGGED, Boolean.valueOf(false)));
+	}
+
+	@Override
+	public void appendHoverText(ItemStack itemStack, BlockGetter blockGetter, List<Component> components, TooltipFlag tooltipFlag) {
+		components.add(RosesUtils.translation("block", "cog.desc").withStyle(ChatFormatting.GRAY));
+		super.appendHoverText(itemStack, blockGetter, components, tooltipFlag);
+	}
+
+	@Override
+	public boolean canConnectRedstone(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, Direction direction) {
+		return true;
 	}
 
 	@Override
@@ -97,8 +115,8 @@ public class CogBlock extends Block implements SimpleWaterloggedBlock {
 		}).filter(Objects::nonNull).findFirst().orElse((BlockState) null);
 	}
 
-	public BlockState getStateForPlacement(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, Direction direction) {
-		if (!this.isValidStateForPlacement(blockGetter, blockState, blockPos, direction)) {
+	public BlockState getStateForPlacement(BlockState blockState, Level level, BlockPos blockPos, Direction direction) {
+		if (!this.isValidStateForPlacement(level, blockState, blockPos, direction)) {
 			return null;
 		} else {
 			BlockState blockstate;
@@ -134,7 +152,7 @@ public class CogBlock extends Block implements SimpleWaterloggedBlock {
 				builder.add(getFaceProperty(direction));
 			}
 		}
-		builder.add(POWER, WATERLOGGED, ON);
+		builder.add(WATERLOGGED);
 	}
 
 	@Override
@@ -206,5 +224,10 @@ public class CogBlock extends Block implements SimpleWaterloggedBlock {
 		}
 
 		return blockState;
+	}
+
+	@Override
+	public void tick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource) {
+		serverLevel.gameEvent(RosesGameEvents.COG_RUMBLES.get(), blockPos, Context.of(blockState));
 	}
 }

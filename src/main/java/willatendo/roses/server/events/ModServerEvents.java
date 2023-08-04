@@ -30,9 +30,6 @@ public class ModServerEvents {
 
 		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(RosesBlocks.ROSE.getId(), () -> RosesBlocks.POTTED_ROSE.get());
 		((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(RosesBlocks.CYAN_FLOWER.getId(), () -> RosesBlocks.POTTED_CYAN_FLOWER.get());
-
-//			SculkSensorBlock.VIBRATION_FREQUENCY_FOR_EVENT = Object2IntMaps.synchronize(SculkSensorBlock.VIBRATION_FREQUENCY_FOR_EVENT);
-//			SculkSensorBlock.VIBRATION_FREQUENCY_FOR_EVENT.put(RosesGameEvents.COG_RUMBLES.get(), 1);
 	}
 
 	private static void addToCompostables(float chance, ItemLike item) {

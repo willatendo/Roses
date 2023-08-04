@@ -5,411 +5,75 @@
 	},
 	"elements": [
 		{
-			"from": [
-				3,
-				0,
-				3
-			],
-			"to": [
-				5,
-				6,
-				5
-			],
+			"from": [3, 0, 3],
+			"to": [5, 6, 5],
 			"faces": {
-				"north": {
-					"uv": [
-						0,
-						0,
-						2,
-						6
-					],
-					"texture": "wood"
-				},
-				"east": {
-					"uv": [
-						0,
-						0,
-						2,
-						6
-					],
-					"texture": "wood"
-				},
-				"south": {
-					"uv": [
-						0,
-						0,
-						2,
-						6
-					],
-					"texture": "wood"
-				},
-				"west": {
-					"uv": [
-						0,
-						0,
-						2,
-						6
-					],
-					"texture": "wood"
-				},
-				"up": {
-					"uv": [
-						0,
-						0,
-						2,
-						2
-					],
-					"texture": "wood"
-				},
-				"down": {
-					"uv": [
-						0,
-						0,
-						2,
-						2
-					],
-					"texture": "wood"
-				}
+				"north": {"uv": [0, 0, 2, 6], "texture": "#wood"},
+				"east": {"uv": [0, 0, 2, 6], "texture": "#wood"},
+				"south": {"uv": [0, 0, 2, 6], "texture": "#wood"},
+				"west": {"uv": [0, 0, 2, 6], "texture": "#wood"},
+				"up": {"uv": [0, 0, 2, 2], "texture": "#wood"},
+				"down": {"uv": [0, 0, 2, 2], "texture": "#wood"}
 			}
 		},
 		{
-			"from": [
-				3,
-				0,
-				11
-			],
-			"to": [
-				5,
-				6,
-				13
-			],
+			"from": [3, 0, 11],
+			"to": [5, 6, 13],
 			"faces": {
-				"north": {
-					"uv": [
-						0,
-						0,
-						2,
-						6
-					],
-					"texture": "wood"
-				},
-				"east": {
-					"uv": [
-						0,
-						0,
-						2,
-						6
-					],
-					"texture": "wood"
-				},
-				"south": {
-					"uv": [
-						0,
-						0,
-						2,
-						6
-					],
-					"texture": "wood"
-				},
-				"west": {
-					"uv": [
-						0,
-						0,
-						2,
-						6
-					],
-					"texture": "wood"
-				},
-				"up": {
-					"uv": [
-						0,
-						0,
-						2,
-						2
-					],
-					"texture": "wood"
-				},
-				"down": {
-					"uv": [
-						0,
-						0,
-						2,
-						2
-					],
-					"texture": "wood"
-				}
+				"north": {"uv": [0, 0, 2, 6], "texture": "#wood"},
+				"east": {"uv": [0, 0, 2, 6], "texture": "#wood"},
+				"south": {"uv": [0, 0, 2, 6], "texture": "#wood"},
+				"west": {"uv": [0, 0, 2, 6], "texture": "#wood"},
+				"up": {"uv": [0, 0, 2, 2], "texture": "#wood"},
+				"down": {"uv": [0, 0, 2, 2], "texture": "#wood"}
 			}
 		},
 		{
-			"from": [
-				11,
-				0,
-				11
-			],
-			"to": [
-				13,
-				6,
-				13
-			],
+			"from": [11, 0, 11],
+			"to": [13, 6, 13],
 			"faces": {
-				"north": {
-					"uv": [
-						0,
-						0,
-						2,
-						6
-					],
-					"texture": "wood"
-				},
-				"east": {
-					"uv": [
-						0,
-						0,
-						2,
-						6
-					],
-					"texture": "wood"
-				},
-				"south": {
-					"uv": [
-						0,
-						0,
-						2,
-						6
-					],
-					"texture": "wood"
-				},
-				"west": {
-					"uv": [
-						0,
-						0,
-						2,
-						6
-					],
-					"texture": "wood"
-				},
-				"up": {
-					"uv": [
-						0,
-						0,
-						2,
-						2
-					],
-					"texture": "wood"
-				},
-				"down": {
-					"uv": [
-						0,
-						0,
-						2,
-						2
-					],
-					"texture": "wood"
-				}
+				"north": {"uv": [0, 0, 2, 6], "texture": "#wood"},
+				"east": {"uv": [0, 0, 2, 6], "texture": "#wood"},
+				"south": {"uv": [0, 0, 2, 6], "texture": "#wood"},
+				"west": {"uv": [0, 0, 2, 6], "texture": "#wood"},
+				"up": {"uv": [0, 0, 2, 2], "texture": "#wood"},
+				"down": {"uv": [0, 0, 2, 2], "texture": "#wood"}
 			}
 		},
 		{
-			"from": [
-				11,
-				0,
-				3
-			],
-			"to": [
-				13,
-				6,
-				5
-			],
+			"from": [11, 0, 3],
+			"to": [13, 6, 5],
 			"faces": {
-				"north": {
-					"uv": [
-						0,
-						0,
-						2,
-						6
-					],
-					"texture": "wood"
-				},
-				"east": {
-					"uv": [
-						0,
-						0,
-						2,
-						6
-					],
-					"texture": "wood"
-				},
-				"south": {
-					"uv": [
-						0,
-						0,
-						2,
-						6
-					],
-					"texture": "wood"
-				},
-				"west": {
-					"uv": [
-						0,
-						0,
-						2,
-						6
-					],
-					"texture": "wood"
-				},
-				"up": {
-					"uv": [
-						0,
-						0,
-						2,
-						2
-					],
-					"texture": "wood"
-				},
-				"down": {
-					"uv": [
-						0,
-						0,
-						2,
-						2
-					],
-					"texture": "wood"
-				}
+				"north": {"uv": [0, 0, 2, 6], "texture": "#wood"},
+				"east": {"uv": [0, 0, 2, 6], "texture": "#wood"},
+				"south": {"uv": [0, 0, 2, 6], "texture": "#wood"},
+				"west": {"uv": [0, 0, 2, 6], "texture": "#wood"},
+				"up": {"uv": [0, 0, 2, 2], "texture": "#wood"},
+				"down": {"uv": [0, 0, 2, 2], "texture": "#wood"}
 			}
 		},
 		{
-			"from": [
-				2,
-				6,
-				2
-			],
-			"to": [
-				14,
-				8,
-				14
-			],
+			"from": [2, 6, 2],
+			"to": [14, 8, 14],
 			"faces": {
-				"north": {
-					"uv": [
-						0,
-						0,
-						12,
-						2
-					],
-					"texture": "wood"
-				},
-				"east": {
-					"uv": [
-						0,
-						0,
-						12,
-						2
-					],
-					"texture": "wood"
-				},
-				"south": {
-					"uv": [
-						0,
-						0,
-						12,
-						2
-					],
-					"texture": "wood"
-				},
-				"west": {
-					"uv": [
-						0,
-						0,
-						12,
-						2
-					],
-					"texture": "wood"
-				},
-				"up": {
-					"uv": [
-						0,
-						0,
-						12,
-						12
-					],
-					"texture": "wood"
-				},
-				"down": {
-					"uv": [
-						0,
-						0,
-						12,
-						12
-					],
-					"texture": "wood"
-				}
+				"north": {"uv": [0, 0, 12, 2], "texture": "#wood"},
+				"east": {"uv": [0, 0, 12, 2], "texture": "#wood"},
+				"south": {"uv": [0, 0, 12, 2], "texture": "#wood"},
+				"west": {"uv": [0, 0, 12, 2], "texture": "#wood"},
+				"up": {"uv": [0, 0, 12, 12], "texture": "#wood"},
+				"down": {"uv": [0, 0, 12, 12], "texture": "#wood"}
 			}
 		},
 		{
-			"from": [
-				2,
-				8,
-				12
-			],
-			"to": [
-				14,
-				16,
-				14
-			],
+			"from": [2, 8, 12],
+			"to": [14, 16, 14],
 			"faces": {
-				"north": {
-					"uv": [
-						0,
-						0,
-						12,
-						8
-					],
-					"texture": "wood"
-				},
-				"east": {
-					"uv": [
-						0,
-						0,
-						2,
-						8
-					],
-					"texture": "wood"
-				},
-				"south": {
-					"uv": [
-						0,
-						0,
-						12,
-						8
-					],
-					"texture": "wood"
-				},
-				"west": {
-					"uv": [
-						0,
-						0,
-						2,
-						8
-					],
-					"texture": "wood"
-				},
-				"up": {
-					"uv": [
-						0,
-						0,
-						12,
-						2
-					],
-					"texture": "wood"
-				},
-				"down": {
-					"uv": [
-						0,
-						0,
-						12,
-						2
-					],
-					"texture": "wood"
-				}
+				"north": {"uv": [0, 0, 12, 8], "texture": "#wood"},
+				"east": {"uv": [0, 0, 2, 8], "texture": "#wood"},
+				"south": {"uv": [0, 0, 12, 8], "texture": "#wood"},
+				"west": {"uv": [0, 0, 2, 8], "texture": "#wood"},
+				"up": {"uv": [0, 0, 12, 2], "texture": "#wood"},
+				"down": {"uv": [0, 0, 12, 2], "texture": "#wood"}
 			}
 		}
 	]

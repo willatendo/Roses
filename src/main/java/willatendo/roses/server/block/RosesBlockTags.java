@@ -14,5 +14,7 @@ public class RosesBlockTags {
 	public static final TagKey<Block> CHAIRS = BLOCK_TAGS.register("chairs");
 	public static final TagKey<Block> TABLES = BLOCK_TAGS.register("tables");
 	public static final TagKey<Block> CLOTH = BLOCK_TAGS.register("cloth");
+	public static final TagKey<Block> HARD_POWERS_COGS = BLOCK_TAGS.register("hard_powers_cogs");
+	public static final TagKey<Block> SOFT_POWERS_COGS = BLOCK_TAGS.register("soft_powers_cogs");
 	public static final TagKey<Block> COGS = BLOCK_TAGS.register("cogs");
 }

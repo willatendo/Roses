@@ -4,6 +4,7 @@ import java.util.concurrent.CompletableFuture;
 
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import willatendo.roses.server.block.RosesBlockTags;
@@ -20,6 +21,8 @@ public class RosesBlockTagsProvider extends BlockTagsProvider {
 		this.tag(RosesBlockTags.CHAIRS).add(RosesBlocks.OAK_CHAIR.get(), RosesBlocks.SPRUCE_CHAIR.get(), RosesBlocks.BIRCH_CHAIR.get(), RosesBlocks.JUNGLE_CHAIR.get(), RosesBlocks.ACACIA_CHAIR.get(), RosesBlocks.DARK_OAK_CHAIR.get(), RosesBlocks.CRIMSON_CHAIR.get(), RosesBlocks.WARPED_CHAIR.get(), RosesBlocks.MANGROVE_CHAIR.get(), RosesBlocks.CHERRY_CHAIR.get(), RosesBlocks.BAMBOO_CHAIR.get());
 		this.tag(RosesBlockTags.TABLES).add(RosesBlocks.OAK_TABLE.get(), RosesBlocks.SPRUCE_TABLE.get(), RosesBlocks.BIRCH_TABLE.get(), RosesBlocks.JUNGLE_TABLE.get(), RosesBlocks.ACACIA_TABLE.get(), RosesBlocks.DARK_OAK_TABLE.get(), RosesBlocks.CRIMSON_TABLE.get(), RosesBlocks.WARPED_TABLE.get(), RosesBlocks.MANGROVE_TABLE.get(), RosesBlocks.CHERRY_TABLE.get(), RosesBlocks.BAMBOO_TABLE.get());
 		this.tag(RosesBlockTags.CLOTH).add(RosesBlocks.CAPRI_CLOTH.get(), RosesBlocks.CHARTREUSE_CLOTH.get(), RosesBlocks.CYAN_CLOTH.get(), RosesBlocks.DARK_GRAY_CLOTH.get(), RosesBlocks.GREEN_CLOTH.get(), RosesBlocks.LIGHT_GRAY_CLOTH.get(), RosesBlocks.MAGNETA_CLOTH.get(), RosesBlocks.ORANGE_CLOTH.get(), RosesBlocks.PURPLE_CLOTH.get(), RosesBlocks.RED_CLOTH.get(), RosesBlocks.ROSE_CLOTH.get(), RosesBlocks.SPRING_GREEN_CLOTH.get(), RosesBlocks.ULTRAMARINE_CLOTH.get(), RosesBlocks.VIOLET_CLOTH.get(), RosesBlocks.WHITE_CLOTH.get(), RosesBlocks.YELLOW_CLOTH.get());
+		this.tag(RosesBlockTags.HARD_POWERS_COGS).add(Blocks.LEVER, Blocks.REPEATER, Blocks.COMPARATOR);
+		this.tag(RosesBlockTags.SOFT_POWERS_COGS).add(RosesBlocks.COG.get());
 		this.tag(RosesBlockTags.COGS).add(RosesBlocks.COG.get());
 	}
 }
