@@ -24,22 +24,27 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.PipeBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.gameevent.GameEvent.Context;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import willatendo.roses.server.game_event.RosesGameEvents;
+import willatendo.roses.server.block.entity.CogBlockEntity;
+import willatendo.roses.server.block.entity.RosesBlockEntities;
 import willatendo.roses.server.util.RosesUtils;
+import willatendo.simplelibrary.server.block.BlockHelper;
 
-public class CogBlock extends Block implements SimpleWaterloggedBlock {
+public class CogBlock extends Block implements SimpleWaterloggedBlock, EntityBlock {
 	private static final VoxelShape UP_SHAPE = Block.box(0.0D, 15.0D, 0.0D, 16.0D, 16.0D, 16.0D);
 	private static final VoxelShape DOWN_SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
 	private static final VoxelShape WEST_SHAPE = Block.box(0.0D, 0.0D, 0.0D, 1.0D, 16.0D, 16.0D);
@@ -59,11 +64,43 @@ public class CogBlock extends Block implements SimpleWaterloggedBlock {
 	private final ImmutableMap<BlockState, VoxelShape> shapesCache;
 
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
 	public CogBlock(Properties properties) {
 		super(properties);
 		this.shapesCache = this.getShapeForEachState(CogBlock::calculateMultifaceShape);
-		this.registerDefaultState(getDefaultMultifaceState(this.stateDefinition).setValue(WATERLOGGED, Boolean.valueOf(false)));
+		this.registerDefaultState(getDefaultMultifaceState(this.stateDefinition).setValue(WATERLOGGED, Boolean.valueOf(false)).setValue(POWERED, Boolean.valueOf(false)));
+	}
+
+	@Override
+	public void neighborChanged(BlockState blockState, Level level, BlockPos blockPos, Block block, BlockPos neighbourBlockPos, boolean flag) {
+		if (!level.isClientSide) {
+			boolean isPowered = blockState.getValue(POWERED);
+			if (isPowered != level.hasNeighborSignal(blockPos)) {
+				if (isPowered) {
+					level.scheduleTick(blockPos, this, 4);
+				} else {
+					level.setBlock(blockPos, blockState.cycle(POWERED), 2);
+				}
+			}
+		}
+	}
+
+	@Override
+	public void tick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource) {
+		if (blockState.getValue(POWERED) && !serverLevel.hasNeighborSignal(blockPos)) {
+			serverLevel.setBlock(blockPos, blockState.cycle(POWERED), 2);
+		}
+	}
+
+	@Override
+	public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
+		return RosesBlockEntities.COG.get().create(blockPos, blockState);
+	}
+
+	@Override
+	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> blockEntityType) {
+		return level.isClientSide() ? null : BlockHelper.createTickerHelper(blockEntityType, RosesBlockEntities.COG.get(), CogBlockEntity::serverTick);
 	}
 
 	@Override
@@ -110,8 +147,8 @@ public class CogBlock extends Block implements SimpleWaterloggedBlock {
 		Level level = blockPlaceContext.getLevel();
 		BlockPos blockPos = blockPlaceContext.getClickedPos();
 		BlockState blockState = level.getBlockState(blockPos);
-		return Arrays.stream(blockPlaceContext.getNearestLookingDirections()).map((p_153865_) -> {
-			return this.getStateForPlacement(blockState, level, blockPos, p_153865_);
+		return Arrays.stream(blockPlaceContext.getNearestLookingDirections()).map((direction) -> {
+			return this.getStateForPlacement(blockState, level, blockPos, direction);
 		}).filter(Objects::nonNull).findFirst().orElse((BlockState) null);
 	}
 
@@ -128,7 +165,7 @@ public class CogBlock extends Block implements SimpleWaterloggedBlock {
 				blockstate = this.defaultBlockState();
 			}
 
-			return blockstate.setValue(getFaceProperty(direction), Boolean.valueOf(true));
+			return blockstate.setValue(getFaceProperty(direction), Boolean.valueOf(true)).setValue(POWERED, Boolean.valueOf(level.hasNeighborSignal(blockPos)));
 		}
 	}
 
@@ -152,7 +189,7 @@ public class CogBlock extends Block implements SimpleWaterloggedBlock {
 				builder.add(getFaceProperty(direction));
 			}
 		}
-		builder.add(WATERLOGGED);
+		builder.add(WATERLOGGED, POWERED);
 	}
 
 	@Override
@@ -224,10 +261,5 @@ public class CogBlock extends Block implements SimpleWaterloggedBlock {
 		}
 
 		return blockState;
-	}
-
-	@Override
-	public void tick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource) {
-		serverLevel.gameEvent(RosesGameEvents.COG_RUMBLES.get(), blockPos, Context.of(blockState));
 	}
 }

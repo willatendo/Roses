@@ -1,4 +1,4 @@
-// 1.20.1	2023-08-03T18:59:48.8622004	Block States: roses
+// 1.20.1	2023-09-23T13:47:45.9464271	Block States: roses
 3a3ad7e1c3877cbc0ad1692b4572089843b44813 assets/roses/blockstates/acacia_chair.json
 503b889ec28f232e35e194798136a3a956efa4ca assets/roses/blockstates/acacia_table.json
 c6cb7431640e1c58bcb15e34c5b0c3019d8c5e42 assets/roses/blockstates/bamboo_chair.json
@@ -9,7 +9,7 @@ c6cb7431640e1c58bcb15e34c5b0c3019d8c5e42 assets/roses/blockstates/bamboo_chair.j
 b731a068d629d7ceb2bbe9bfd343b55b13a605dc assets/roses/blockstates/chartreuse_cloth.json
 b58c0e619c500fe7acd1d07215b7bbcce517abdc assets/roses/blockstates/cherry_chair.json
 dc51b3f22882b470bf7dbffd70458c5eb0fcfedf assets/roses/blockstates/cherry_table.json
-d070997602b4260c0234ab42889c80aa20f9eb42 assets/roses/blockstates/cog.json
+0a3a48a728660f9131e0e9437c85dea676056208 assets/roses/blockstates/cog.json
 2f2dd7470153f1131c2612a3c91fcff2ed854ae9 assets/roses/blockstates/crimson_chair.json
 c4f36e1b81bd67201a5e1d436d0ea179dbe05312 assets/roses/blockstates/crimson_table.json
 eff514c8a10fde5b9ba64c87897b1ef21fe156dd assets/roses/blockstates/cyan_cloth.json
@@ -55,7 +55,7 @@ af0f0cc8d182248d98a1b1536ed7313e785759d3 assets/roses/models/block/bamboo_chair.
 55029984054f457eeff7e54c4b92c6da2f725dfc assets/roses/models/block/chartreuse_cloth.json
 091ff38ff9c1313f40e6ca3d14afe7e7dcb67300 assets/roses/models/block/cherry_chair.json
 b288e1de1bea859470e34430563ae14733b71034 assets/roses/models/block/cherry_table.json
-db0231d18be8e1ac6ebd712ffb29a4ed37beeb0a assets/roses/models/block/cog.json
+17d6e0c7ced3f517606d119d8fced0f740146a8b assets/roses/models/block/cog.json
 33d2d05cfaf553d40677184f02773b7b39450351 assets/roses/models/block/crimson_chair.json
 5d0c3d350fe6e85eb0e3a3294f9860ca48d523a5 assets/roses/models/block/crimson_table.json
 ac56ba2872b7bce31feb0b279f21f928c0866465 assets/roses/models/block/cyan_cloth.json
@@ -76,6 +76,7 @@ d3146d7a1e7586bee21aae56e89b63338ab5ecae assets/roses/models/block/oak_chair.jso
 0247dbe4c1057d79427a0d0a796dcf9cfa1fa5ba assets/roses/models/block/orange_cloth.json
 88d0a14478e5af59ea63687044e8e895b2c38ccc assets/roses/models/block/potted_cyan_flower.json
 9e76d57bffc80318609de8b8e059da13b120091a assets/roses/models/block/potted_rose.json
+db0231d18be8e1ac6ebd712ffb29a4ed37beeb0a assets/roses/models/block/powered_cog.json
 3ec86446a9d67135a39937665575914310cf1155 assets/roses/models/block/purple_cloth.json
 3a8c506bd48632748d463c420812c913bad8e49e assets/roses/models/block/red_cloth.json
 85fe8834d2c0af7268fbdf3bc7890ec829b05980 assets/roses/models/block/rose.json

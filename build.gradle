@@ -2,10 +2,10 @@ plugins {
 	id 'eclipse'
 	id 'idea'
 	id 'maven-publish'
-	id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+	id 'net.neoforged.gradle' version '[6.0.18,6.2)'
 }
 
-version = "5.0.0"
+version = "v5.1.0"
 group = mod_id
 
 jarJar.enable()
@@ -43,6 +43,12 @@ minecraft {
 	}
 }
 
+reobf {
+	jarJar { }
+}
+
+tasks.jarJar.finalizedBy('reobfJarJar')
+
 sourceSets.main.resources { 
 	srcDir 'src/generated/resources' 
 }
@@ -52,17 +58,11 @@ repositories {
 }
 
 dependencies {
-	minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+	minecraft "net.neoforged:forge:${minecraft_version}-${forge_version}"
 	
 	implementation fg.deobf("com.github.willatendo:Simple-Library:${simple_library_version}")
 	jarJar(group: 'com.github.willatendo', name: 'Simple-Library', version: "[v1.0.0,v2.0.0)")
 }
-
-reobf {
-	jarJar { }
-}
-
-tasks.jarJar.finalizedBy('reobfJarJar')
 
 tasks.named('jar', Jar).configure {
 	manifest {

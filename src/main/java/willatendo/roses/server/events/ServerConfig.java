@@ -14,7 +14,7 @@ public class ServerConfig {
 	public final ForgeConfigSpec.ConfigValue<List<? extends String>> flowerBiomes;
 
 	public ServerConfig(ForgeConfigSpec.Builder builder) {
-		enableFlowerGeneration = builder.comment("Sets if the flowers should be generated.").translation(TRANSLATION_TEXT + "enableFlowerGeneration").define("enableFlowerGeneration", true);
-		flowerBiomes = builder.comment("Sets the biomes flower patches will spawn in.").translation(TRANSLATION_TEXT + "flowerBiomes").defineList("flowerBiomes", Lists.newArrayList("minecraft:plains", "minecraft:sunflower_plains", "minecraft:birch_forest", "minecraft:swamps"), o -> o instanceof String);
+		this.enableFlowerGeneration = builder.comment("Sets if the flowers should be generated.").translation(TRANSLATION_TEXT + "enableFlowerGeneration").define("enableFlowerGeneration", true);
+		this.flowerBiomes = builder.comment("Sets the biomes flower patches will spawn in.").translation(TRANSLATION_TEXT + "flowerBiomes").defineList("flowerBiomes", Lists.newArrayList("minecraft:plains", "minecraft:sunflower_plains", "minecraft:birch_forest", "minecraft:swamps"), o -> o instanceof String);
 	}
 }

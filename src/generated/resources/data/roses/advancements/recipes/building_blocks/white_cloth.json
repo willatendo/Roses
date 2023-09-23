@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_echo_shard": {
+    "has_string": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:echo_shard"
+              "minecraft:string"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "roses:cog"
+        "recipe": "roses:white_cloth"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_echo_shard",
+      "has_string",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "roses:cog"
+      "roses:white_cloth"
     ]
   },
   "sends_telemetry_event": false

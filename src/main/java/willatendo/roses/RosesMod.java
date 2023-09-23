@@ -7,6 +7,7 @@ import willatendo.roses.client.sound.RosesSounds;
 import willatendo.roses.server.RosesCreativeModeTabs;
 import willatendo.roses.server.biome.RosesBiomeModifierSerializers;
 import willatendo.roses.server.block.RosesBlocks;
+import willatendo.roses.server.block.entity.RosesBlockEntities;
 import willatendo.roses.server.entity.RosesEntities;
 import willatendo.roses.server.game_event.RosesGameEvents;
 import willatendo.roses.server.item.RosesItems;
@@ -18,6 +19,6 @@ public class RosesMod {
 	public RosesMod() {
 		IEventBus iEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-		SimpleUtils.registerAll(iEventBus, RosesItems.ITEMS, RosesBlocks.BLOCKS, RosesCreativeModeTabs.CREATIVE_MODE_TABS, RosesEntities.ENTITY_TYPES, RosesSounds.SOUND_EVENTS, RosesGameEvents.GAME_EVENTS, RosesBiomeModifierSerializers.BIOME_MODIFIER_SERIALIZERS);
+		SimpleUtils.registerAll(iEventBus, RosesItems.ITEMS, RosesBlocks.BLOCKS, RosesBlockEntities.BLOCK_ENTITY_TYPE, RosesCreativeModeTabs.CREATIVE_MODE_TABS, RosesEntities.ENTITY_TYPES, RosesSounds.SOUND_EVENTS, RosesGameEvents.GAME_EVENTS, RosesBiomeModifierSerializers.BIOME_MODIFIER_SERIALIZERS);
 	}
 }

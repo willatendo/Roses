@@ -62,7 +62,7 @@ public class RosesLanguageProvider extends SimpleLanguageProvider {
 		this.add(RosesBlocks.DEEPSLATE_RUBY_ORE.get());
 		this.add(RosesBlocks.RUBY_BLOCK.get(), "Block of Ruby");
 		this.add(RosesBlocks.COG.get());
-		this.add("block.roses.cog.desc", "Seams broken and causes extreme vibrations");
+		this.addDesc(RosesBlocks.COG.get(), "Distracting Vibrations");
 		this.add(RosesCreativeModeTabs.ROSES.get(), "Roses");
 	}
 }

@@ -40,6 +40,21 @@ public class ChairBlock extends HorizontalDirectionalBlock implements SimpleWate
 	}
 
 	@Override
+	public boolean isFlammable(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, Direction direction) {
+		return true;
+	}
+
+	@Override
+	public int getFlammability(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, Direction direction) {
+		return 5;
+	}
+
+	@Override
+	public int getFireSpreadSpeed(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, Direction direction) {
+		return 20;
+	}
+
+	@Override
 	public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
 		return SHAPE;
 	}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "cloth",
+  "ingredients": [
+    {
+      "item": "roses:white_cloth"
+    },
+    {
+      "item": "minecraft:gray_dye"
+    }
+  ],
+  "result": {
+    "item": "roses:dark_gray_cloth"
+  }
+}
