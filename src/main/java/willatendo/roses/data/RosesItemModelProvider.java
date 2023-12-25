@@ -1,14 +1,14 @@
 package willatendo.roses.data;
 
-import net.minecraft.data.PackOutput;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import willatendo.roses.server.block.RosesBlocks;
 import willatendo.roses.server.item.RosesItems;
 import willatendo.simplelibrary.data.SimpleItemModelProvider;
+import willatendo.simplelibrary.data.util.ExistingFileHelper;
 
 public class RosesItemModelProvider extends SimpleItemModelProvider {
-	public RosesItemModelProvider(PackOutput packOutput, String modid, ExistingFileHelper existingFileHelper) {
-		super(packOutput, modid, existingFileHelper);
+	public RosesItemModelProvider(FabricDataOutput fabricDataOutput, String modid, ExistingFileHelper existingFileHelper) {
+		super(fabricDataOutput, modid, existingFileHelper);
 	}
 
 	@Override

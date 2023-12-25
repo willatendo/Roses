@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#roses:has_cyan_flower",
-  "features": "roses:cyan_flower_patch",
-  "step": "vegetal_decoration"
-}

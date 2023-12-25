@@ -1,6 +1,0 @@
-// 1.20.1	2023-08-02T17:04:11.6459538	Tags for minecraft:worldgen/biome mod id roses
-6525dda69924a36f16797ed873bffc083e1f4de5 data/roses/tags/worldgen/biome/has_cyan_flower.json
-82961f7ee8af5e2bfbaa9aa389229864040eaa23 data/roses/tags/worldgen/biome/has_rose.json
-ad14710be97affed8f33128dfdcef53fddbcf8f4 data/roses/tags/worldgen/biome/uses_music/beach_music.json
-ad41a205a2af421a343ed7b2b72e34818bf036db data/roses/tags/worldgen/biome/uses_music/birch_forest_music.json
-45e2314b6fbf2e847bd70c163e678e0e756a1640 data/roses/tags/worldgen/biome/uses_music/deep_dark_music.json

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "table",
+  "key": {
+    "#": {
+      "item": "minecraft:bamboo_planks"
+    },
+    "@": {
+      "item": "minecraft:bamboo"
+    }
+  },
+  "pattern": [
+    "###",
+    "@@@",
+    "@ @"
+  ],
+  "result": {
+    "item": "roses:bamboo_table"
+  }
+}

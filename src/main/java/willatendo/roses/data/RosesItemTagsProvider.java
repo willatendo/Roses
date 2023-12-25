@@ -2,19 +2,20 @@ package willatendo.roses.data;
 
 import java.util.concurrent.CompletableFuture;
 
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.core.HolderLookup.Provider;
-import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.data.ExistingFileHelper;
 import willatendo.roses.server.block.RosesBlockTags;
 import willatendo.roses.server.item.RosesItemTags;
 import willatendo.roses.server.item.RosesItems;
+import willatendo.simplelibrary.data.SimpleItemTagsProvider;
+import willatendo.simplelibrary.data.SimpleTagsProvider;
+import willatendo.simplelibrary.data.util.ExistingFileHelper;
 
-public class RosesItemTagsProvider extends ItemTagsProvider {
-	public RosesItemTagsProvider(PackOutput packOutput, CompletableFuture<Provider> provider, CompletableFuture<TagLookup<Block>> blockTags, String modid, ExistingFileHelper existingFileHelper) {
-		super(packOutput, provider, blockTags, modid, existingFileHelper);
+public class RosesItemTagsProvider extends SimpleItemTagsProvider {
+	public RosesItemTagsProvider(FabricDataOutput fabricDataOutput, CompletableFuture<Provider> provider, CompletableFuture<SimpleTagsProvider.TagLookup<Block>> blockTags, String modid, ExistingFileHelper existingFileHelper) {
+		super(fabricDataOutput, provider, blockTags, modid, existingFileHelper);
 	}
 
 	@Override

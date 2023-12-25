@@ -1,0 +1,13 @@
+{
+  "disc.sound.cog_rumbles": {
+    "sounds": [
+      "minecart.inside"
+    ],
+    "subtitle": "sound.roses.cog_rumbles"
+  },
+  "disc.sound.magnetic_circuit": {
+    "sounds": [
+      "roses:disc.sound.magnetic_circuit"
+    ]
+  }
+}

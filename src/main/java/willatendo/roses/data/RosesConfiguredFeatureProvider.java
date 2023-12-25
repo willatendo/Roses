@@ -3,10 +3,10 @@ package willatendo.roses.data;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraftforge.registries.ForgeRegistries;
 import willatendo.roses.server.block.RosesBlocks;
 import willatendo.simplelibrary.data.SimpleConfiguredFeatureProvider;
 
@@ -33,7 +33,7 @@ public class RosesConfiguredFeatureProvider extends SimpleConfiguredFeatureProvi
 		JsonObject toPlace = new JsonObject();
 		toPlace.addProperty("type", "minecraft:simple_state_provider");
 		JsonObject state = new JsonObject();
-		state.addProperty("Name", ForgeRegistries.BLOCKS.getKey(flower).toString());
+		state.addProperty("Name", BuiltInRegistries.BLOCK.getKey(flower).toString());
 		toPlace.add("state", state);
 		configs.add("to_place", toPlace);
 		features.add("config", configs);

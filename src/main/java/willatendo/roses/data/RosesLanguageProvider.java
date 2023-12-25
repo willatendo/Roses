@@ -1,14 +1,14 @@
 package willatendo.roses.data;
 
-import net.minecraft.data.PackOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import willatendo.roses.server.RosesCreativeModeTabs;
 import willatendo.roses.server.block.RosesBlocks;
 import willatendo.roses.server.item.RosesItems;
 import willatendo.simplelibrary.data.SimpleLanguageProvider;
 
 public class RosesLanguageProvider extends SimpleLanguageProvider {
-	public RosesLanguageProvider(PackOutput packOutput, String modid, String locale) {
-		super(packOutput, modid, locale);
+	public RosesLanguageProvider(FabricDataOutput fabricDataOutput, String modid, String locale) {
+		super(fabricDataOutput, modid, locale);
 	}
 
 	@Override

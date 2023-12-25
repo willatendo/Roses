@@ -110,11 +110,6 @@ public class CogBlock extends Block implements SimpleWaterloggedBlock, EntityBlo
 	}
 
 	@Override
-	public boolean canConnectRedstone(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, Direction direction) {
-		return true;
-	}
-
-	@Override
 	public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
 		return this.shapesCache.get(blockState);
 	}

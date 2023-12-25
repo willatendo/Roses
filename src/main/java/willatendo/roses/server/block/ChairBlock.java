@@ -2,7 +2,9 @@ package willatendo.roses.server.block;
 
 import java.util.List;
 
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
+
+import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -15,6 +17,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CocoaBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -31,6 +34,7 @@ import willatendo.roses.server.entity.Chair;
 import willatendo.roses.server.entity.RosesEntities;
 
 public class ChairBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
+	public static final MapCodec<ChairBlock> CODEC = CocoaBlock.simpleCodec(ChairBlock::new);
 	private static final VoxelShape SHAPE = Block.box(2, 0, 2, 14, 16, 14);
 	private static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
@@ -40,18 +44,8 @@ public class ChairBlock extends HorizontalDirectionalBlock implements SimpleWate
 	}
 
 	@Override
-	public boolean isFlammable(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, Direction direction) {
-		return true;
-	}
-
-	@Override
-	public int getFlammability(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, Direction direction) {
-		return 5;
-	}
-
-	@Override
-	public int getFireSpreadSpeed(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, Direction direction) {
-		return 20;
+	protected MapCodec<ChairBlock> codec() {
+		return CODEC;
 	}
 
 	@Override
@@ -83,7 +77,7 @@ public class ChairBlock extends HorizontalDirectionalBlock implements SimpleWate
 	public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
 		if (!level.isClientSide()) {
 			if (isPlayerInRange(player, blockPos)) {
-				Chair chair = RosesEntities.CHAIR.get().create(level);
+				Chair chair = (Chair) RosesEntities.CHAIR.get().create(level);
 				chair.setChairPos(blockPos);
 				level.addFreshEntity(chair);
 				player.startRiding(chair);
