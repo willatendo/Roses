@@ -1,0 +1,7 @@
+// 1.20.4	2024-05-26T12:48:34.5538602	Registries
+89f893c0735173fe5302e14fafea928282d04ed4 data/roses/neoforge/biome_modifier/add_cyan_flower_patch.json
+5df69c50dc76607ab233a8888144ea7e00b26c4f data/roses/neoforge/biome_modifier/add_rose_patch.json
+18c776930dcbe8623b240b882d465df8d03e8559 data/roses/worldgen/configured_feature/cyan_flower_patch.json
+5a13bd3214b394499a80a808f893ecd37ac5322a data/roses/worldgen/configured_feature/rose_patch.json
+e28c7a8366ee89fcd8964d84c4190796ea6067c9 data/roses/worldgen/placed_feature/cyan_flower_patch.json
+dc1ac274cce4997138c8376f1854178c0b8b0bcd data/roses/worldgen/placed_feature/rose_patch.json
