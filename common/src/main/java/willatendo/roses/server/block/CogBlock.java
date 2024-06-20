@@ -9,6 +9,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -99,7 +100,7 @@ public class CogBlock extends Block implements SimpleWaterloggedBlock, EntityBlo
     }
 
     @Override
-    public void appendHoverText(ItemStack itemStack, BlockGetter blockGetter, List<Component> components, TooltipFlag tooltipFlag) {
+    public void appendHoverText(ItemStack itemStack, Item.TooltipContext blockGetter, List<Component> components, TooltipFlag tooltipFlag) {
         components.add(RosesUtils.translation("block", "cog.desc").withStyle(ChatFormatting.GRAY));
         super.appendHoverText(itemStack, blockGetter, components, tooltipFlag);
     }

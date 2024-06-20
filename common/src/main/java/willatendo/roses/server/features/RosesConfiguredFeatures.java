@@ -1,7 +1,7 @@
 package willatendo.roses.server.features;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
@@ -25,9 +25,9 @@ public class RosesConfiguredFeatures {
         return FeatureUtils.simpleRandomPatchConfiguration(tries, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(blockStateProvider)));
     }
 
-    public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> bootstapContext) {
-        FeatureUtils.register(bootstapContext, ROSE_PATCH, Feature.FLOWER, grassPatch(BlockStateProvider.simple(RosesBlocks.ROSE.get().defaultBlockState()), 96));
-        FeatureUtils.register(bootstapContext, CYAN_FLOWER_PATCH, Feature.FLOWER, grassPatch(BlockStateProvider.simple(RosesBlocks.CYAN_FLOWER.get().defaultBlockState()), 96));
+    public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> bootstrapContext) {
+        FeatureUtils.register(bootstrapContext, ROSE_PATCH, Feature.FLOWER, grassPatch(BlockStateProvider.simple(RosesBlocks.ROSE.get().defaultBlockState()), 96));
+        FeatureUtils.register(bootstrapContext, CYAN_FLOWER_PATCH, Feature.FLOWER, grassPatch(BlockStateProvider.simple(RosesBlocks.CYAN_FLOWER.get().defaultBlockState()), 96));
 
     }
 }

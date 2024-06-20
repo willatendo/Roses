@@ -1,6 +1,7 @@
 package willatendo.roses.server.block.entity;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -19,7 +20,7 @@ public class CogBlockEntity extends BlockEntity {
     public static void serverTick(Level level, BlockPos blockPos, BlockState blockState, CogBlockEntity cogBlockEntity) {
         if (blockState.getValue(CogBlock.POWERED) == true) {
             if (cogBlockEntity.noiseTick == 40) {
-                level.gameEvent(RosesGameEvents.COG_RUMBLES.get(), blockPos, Context.of(blockState));
+                level.gameEvent(RosesGameEvents.COG_RUMBLES, blockPos, Context.of(blockState));
                 cogBlockEntity.noiseTick = 0;
             } else {
                 cogBlockEntity.noiseTick++;
@@ -30,14 +31,14 @@ public class CogBlockEntity extends BlockEntity {
     }
 
     @Override
-    public void load(CompoundTag compoundTag) {
-        super.load(compoundTag);
+    public void loadAdditional(CompoundTag compoundTag, HolderLookup.Provider provider) {
+        super.loadAdditional(compoundTag, provider);
         this.noiseTick = compoundTag.getInt("NoiseTick");
     }
 
     @Override
-    protected void saveAdditional(CompoundTag compoundTag) {
-        super.saveAdditional(compoundTag);
+    protected void saveAdditional(CompoundTag compoundTag, HolderLookup.Provider provider) {
+        super.saveAdditional(compoundTag, provider);
         compoundTag.putInt("NoiseTick", this.noiseTick);
     }
 }

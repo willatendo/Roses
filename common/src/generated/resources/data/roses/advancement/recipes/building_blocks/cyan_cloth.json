@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "roses:cyan_cloth"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_white_cloth": {
+      "conditions": {
+        "items": [
+          {
+            "items": "roses:white_cloth"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_white_cloth"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "roses:cyan_cloth"
+    ]
+  }
+}

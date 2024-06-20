@@ -1,3 +1,3 @@
-// 1.20.4	2024-05-26T12:09:58.5331424	Tags for minecraft:game_event mod id roses
-ab154078578ef35037d0d29de11af1799b969d56 data/minecraft/tags/game_events/vibrations.json
-ab154078578ef35037d0d29de11af1799b969d56 data/minecraft/tags/game_events/warden_can_listen.json
+// 1.21	2024-06-20T16:31:31.6237918	Tags for minecraft:game_event mod id roses
+ab154078578ef35037d0d29de11af1799b969d56 data/minecraft/tags/game_event/vibrations.json
+ab154078578ef35037d0d29de11af1799b969d56 data/minecraft/tags/game_event/warden_can_listen.json

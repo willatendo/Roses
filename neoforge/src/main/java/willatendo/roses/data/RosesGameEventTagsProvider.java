@@ -16,7 +16,7 @@ public class RosesGameEventTagsProvider extends GameEventTagsProvider {
 
     @Override
     protected void addTags(Provider provider) {
-        this.tag(GameEventTags.VIBRATIONS).add(RosesGameEvents.COG_RUMBLES.get());
-        this.tag(GameEventTags.WARDEN_CAN_LISTEN).add(RosesGameEvents.COG_RUMBLES.get());
+        this.tag(GameEventTags.VIBRATIONS).add(RosesGameEvents.COG_RUMBLES.getKey());
+        this.tag(GameEventTags.WARDEN_CAN_LISTEN).add(RosesGameEvents.COG_RUMBLES.getKey());
     }
 }

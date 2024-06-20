@@ -1,18 +1,17 @@
 package willatendo.roses.data.loot;
 
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.loot.BlockLootSubProvider;
-import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
 import willatendo.roses.server.block.RosesBlocks;
 import willatendo.roses.server.util.RosesUtils;
+import willatendo.simplelibrary.data.loot.SimpleBlockLootSubProvider;
 
-import java.util.Set;
 import java.util.stream.Collectors;
 
-public class RosesBlockLootSubProvider extends BlockLootSubProvider {
-    public RosesBlockLootSubProvider() {
-        super(Set.of(), FeatureFlags.REGISTRY.allFlags());
+public class RosesBlockLootSubProvider extends SimpleBlockLootSubProvider {
+    public RosesBlockLootSubProvider(HolderLookup.Provider registries) {
+        super(registries, RosesUtils.ID);
     }
 
     @Override

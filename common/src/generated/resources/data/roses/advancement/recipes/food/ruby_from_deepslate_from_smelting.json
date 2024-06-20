@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_deepslate_ruby_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "roses:deepslate_ruby_ore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "roses:ruby_from_deepslate_from_smelting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_deepslate_ruby_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "roses:ruby_from_deepslate_from_smelting"
+    ]
+  }
+}
