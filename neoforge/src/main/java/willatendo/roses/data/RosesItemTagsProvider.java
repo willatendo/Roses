@@ -19,7 +19,7 @@ public class RosesItemTagsProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(Provider provider) {
-        this.tag(RosesItemTags.LEGACY_ITEM).add(RosesItems.RUBY.get(), RosesItems.MUSIC_DISC_MAGNETIC_CIRCUIT.get());
+        this.tag(RosesItemTags.LEGACY_ITEM).add(RosesItems.RUBY.get(), RosesItems.MUSIC_DISC_MAGNETIC_CIRCUIT.get(), RosesItems.MUSIC_DISC_DOG.get(), RosesItems.COPPER_HORN.get());
 
         this.copy(RosesBlockTags.LEGACY_BLOCKS, RosesItemTags.LEGACY_BLOCKS);
         this.copy(RosesBlockTags.CLOTH, RosesItemTags.CLOTH);

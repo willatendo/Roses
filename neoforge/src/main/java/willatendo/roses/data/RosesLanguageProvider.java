@@ -16,9 +16,24 @@ public class RosesLanguageProvider extends SimpleLanguageProvider {
 
     @Override
     protected void addTranslations() {
+        this.add("instrument.roses.fly", "Fly");
+        this.add("instrument.roses.resist", "Resist");
         this.add(RosesItems.RUBY.get());
         this.add(RosesItems.MUSIC_DISC_MAGNETIC_CIRCUIT.get(), "Music Disc");
         this.add("jukebox_song.roses.magnetic_circuit", "Notch - Magnetic Circuit");
+        this.add(RosesItems.MUSIC_DISC_DOG.get(), "Music Disc");
+        this.add("jukebox_song.roses.dog", "C418 - Dog");
+        this.add(RosesItems.COPPER_HORN.get(), "Copper Horn");
+        this.add("copper_horn.roses.great_sky_falling", "Great Sky Falling");
+        this.add("copper_horn.roses.old_hymn_resting", "Old Hym Resting");
+        this.add("copper_horn.roses.pure_water_desire", "Pure Water Desire");
+        this.add("copper_horn.roses.humble_fire_memory", "Humble Fire Memory");
+        this.add("copper_horn.roses.dry_urge_anger", "Dry Urge Anger");
+        this.add("copper_horn.roses.clear_temper_journey", "Clear Temper Journey");
+        this.add("copper_horn.roses.fresh_nest_thought", "Fresh Nest Thought");
+        this.add("copper_horn.roses.secret_lake_tear", "Secret Lake Tear");
+        this.add("copper_horn.roses.fearless_river_gift", "Fearless River Gift");
+        this.add("copper_horn.roses.sweet_moon_love", "Sweet Moon Love");
         this.add(RosesBlocks.ROSE.get());
         this.add(RosesBlocks.POTTED_ROSE.get());
         this.add(RosesBlocks.CYAN_FLOWER.get());

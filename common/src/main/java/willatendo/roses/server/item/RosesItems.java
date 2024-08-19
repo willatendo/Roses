@@ -16,7 +16,9 @@ public class RosesItems {
     public static final SimpleRegistry<Item> ITEMS = SimpleRegistry.create(Registries.ITEM, RosesUtils.ID);
 
     public static final SimpleHolder<Item> RUBY = ITEMS.register("ruby", () -> new Item(new Item.Properties()));
-    public static final SimpleHolder<Item> MUSIC_DISC_MAGNETIC_CIRCUIT = ITEMS.register("music_disc_magnetic_circuit", () -> new Item((new Item.Properties()).stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(RosesJukeboxSongs.MAGNETIC_CIRCUIT)));
+    public static final SimpleHolder<Item> COPPER_HORN = ITEMS.register("copper_horn", () -> new CopperHornItem(RosesCopperHornInstrumentTags.COPPER_HORNS, new Item.Properties()));
+    public static final SimpleHolder<Item> MUSIC_DISC_MAGNETIC_CIRCUIT = ITEMS.register("music_disc_magnetic_circuit", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(RosesJukeboxSongs.MAGNETIC_CIRCUIT)));
+    public static final SimpleHolder<Item> MUSIC_DISC_DOG = ITEMS.register("music_disc_dog", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(RosesJukeboxSongs.DOG)));
 
     public static void init(List<SimpleRegistry<?>> simpleRegistries) {
         SimpleHolder<Block>[] exceptions = new SimpleHolder[]{RosesBlocks.POTTED_ROSE, RosesBlocks.POTTED_CYAN_FLOWER};

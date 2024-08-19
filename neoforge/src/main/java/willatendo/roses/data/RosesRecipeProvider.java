@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import willatendo.roses.server.block.RosesBlocks;
 import willatendo.roses.server.item.RosesItems;
+import willatendo.roses.server.recipe.CopperHornRecipe;
 import willatendo.simplelibrary.data.SimpleRecipeProvider;
 
 import java.util.concurrent.CompletableFuture;
@@ -27,7 +28,9 @@ public class RosesRecipeProvider extends SimpleRecipeProvider {
         this.shaped(RecipeCategory.BUILDING_BLOCKS, RosesBlocks.RUBY_BLOCK.get(), PatternBuilder.builder("###", "###", "###"), IngredientBuilder.build(RosesItems.RUBY.get()).symbol('#').requires());
         this.oreWithName("ruby_from_ore", RosesItems.RUBY.get(), RosesBlocks.RUBY_ORE.get(), 1.0F);
         this.oreWithName("ruby_from_deepslate", RosesItems.RUBY.get(), RosesBlocks.DEEPSLATE_RUBY_ORE.get(), 1.0F);
-        this.shaped(RecipeCategory.DECORATIONS, RosesItems.MUSIC_DISC_MAGNETIC_CIRCUIT.get(), PatternBuilder.builder("###", "$#@", "###"), IngredientBuilder.build(Items.IRON_INGOT).symbol('#').requires(), IngredientBuilder.build(RosesBlocks.RUBY_BLOCK.get()).symbol('$'), IngredientBuilder.build(Blocks.LAPIS_BLOCK).symbol('@'));
+        this.shaped(RecipeCategory.MISC, RosesItems.MUSIC_DISC_MAGNETIC_CIRCUIT.get(), PatternBuilder.builder("###", "$#@", "###"), IngredientBuilder.build(Items.IRON_INGOT).symbol('#').requires(), IngredientBuilder.build(RosesBlocks.RUBY_BLOCK.get()).symbol('$'), IngredientBuilder.build(Blocks.LAPIS_BLOCK).symbol('@'));
+        this.shapeless(RecipeCategory.MISC, RosesItems.MUSIC_DISC_DOG.get(), IngredientBuilder.build(Items.MUSIC_DISC_CAT));
+        this.shapeless("music_disc_cat_from_music_disc_dog", RecipeCategory.MISC, Items.MUSIC_DISC_CAT, IngredientBuilder.build(RosesItems.MUSIC_DISC_DOG.get()));
         this.shapeless("red_dye_from_rose", RecipeCategory.MISC, Items.RED_DYE, 2, IngredientBuilder.build(RosesBlocks.ROSE.get()));
         this.shapeless("cyan_dye_from_cyan_flower", RecipeCategory.MISC, Items.CYAN_DYE, 2, IngredientBuilder.build(RosesBlocks.CYAN_FLOWER.get()));
         this.chair(RosesBlocks.OAK_CHAIR.get(), Blocks.OAK_PLANKS);
@@ -70,6 +73,7 @@ public class RosesRecipeProvider extends SimpleRecipeProvider {
         this.shapeless(RecipeCategory.BUILDING_BLOCKS, "cloth", RosesBlocks.VIOLET_CLOTH.get(), IngredientBuilder.build(RosesBlocks.WHITE_CLOTH.get()).requires(), IngredientBuilder.build(Items.PURPLE_DYE), IngredientBuilder.build(Items.PURPLE_DYE));
         this.shaped(RecipeCategory.BUILDING_BLOCKS, "cloth", RosesBlocks.WHITE_CLOTH.get(), PatternBuilder.builder("###", "###", "###"), IngredientBuilder.build(Items.STRING).symbol('#'));
         this.shapeless(RecipeCategory.BUILDING_BLOCKS, "cloth", RosesBlocks.YELLOW_CLOTH.get(), IngredientBuilder.build(RosesBlocks.WHITE_CLOTH.get()).requires(), IngredientBuilder.build(Items.YELLOW_DYE), IngredientBuilder.build(Items.GRAY_DYE));
+        this.special("copper_horn", CopperHornRecipe::new);
     }
 
     public void chair(Block chair, Block planks) {

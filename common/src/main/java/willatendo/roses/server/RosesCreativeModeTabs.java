@@ -1,8 +1,14 @@
 package willatendo.roses.server;
 
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import willatendo.roses.server.block.RosesBlocks;
+import willatendo.roses.server.item.CopperHornInstrument;
+import willatendo.roses.server.item.CopperHornItem;
+import willatendo.roses.server.item.RosesCopperHornInstrumentTags;
 import willatendo.roses.server.item.RosesItems;
 import willatendo.roses.server.util.RosesUtils;
 import willatendo.simplelibrary.server.registry.SimpleRegistry;
@@ -17,6 +23,10 @@ public class RosesCreativeModeTabs {
     public static final Supplier<CreativeModeTab> ROSES = CREATIVE_MODE_TABS.register("roses", () -> SimpleUtils.create(RosesUtils.ID, RosesUtils.ID, () -> RosesItems.RUBY.get(), (itemDisplayParameters, output) -> {
         output.accept(RosesItems.RUBY.get());
         output.accept(RosesItems.MUSIC_DISC_MAGNETIC_CIRCUIT.get());
+        output.accept(RosesItems.MUSIC_DISC_DOG.get());
+        itemDisplayParameters.holders().lookup(RosesRegistries.COPPER_HORN_INSTRUMENTS).ifPresent(copperHornInstrumentRegistryLookup -> {
+            RosesCreativeModeTabs.generateCopperHornInstrumentTypes(output, copperHornInstrumentRegistryLookup, RosesItems.COPPER_HORN.get(), RosesCopperHornInstrumentTags.COPPER_HORNS);
+        });
         output.accept(RosesBlocks.ROSE.get());
         output.accept(RosesBlocks.CYAN_FLOWER.get());
         output.accept(RosesBlocks.CAPRI_CLOTH.get());
@@ -62,6 +72,17 @@ public class RosesCreativeModeTabs {
         output.accept(RosesBlocks.RUBY_BLOCK.get());
         output.accept(RosesBlocks.COG.get());
     }).build());
+
+    private static void generateCopperHornInstrumentTypes(CreativeModeTab.Output output, HolderLookup<CopperHornInstrument> copperHornInstrumentHolderLookup, Item item, TagKey<CopperHornInstrument> copperHornInstrumentTagKey) {
+        copperHornInstrumentHolderLookup.get(copperHornInstrumentTagKey).ifPresent(copperHornInstrumentNamed -> {
+            copperHornInstrumentNamed.stream().map(copperHornInstrumentHolder -> {
+                return CopperHornItem.create(item, copperHornInstrumentHolder);
+            }).forEach((itemStack) -> {
+                output.accept(itemStack);
+            });
+        });
+    }
+
 
     public static void init(List<SimpleRegistry<?>> simpleRegistries) {
         simpleRegistries.add(CREATIVE_MODE_TABS);

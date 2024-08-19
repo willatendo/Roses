@@ -1,4 +1,4 @@
-// 1.21	2024-06-20T16:35:32.5840554	Recipes
+// 1.21	2024-06-21T12:39:22.0825355	Recipes
 cb06a79f91d3658413cee457dc48d2d9be1a0bd0 data/roses/advancement/recipes/building_blocks/acacia_chair.json
 bb1638ff9a2037baa4f50d91cc37e6cccf5c4b3a data/roses/advancement/recipes/building_blocks/acacia_table.json
 36812bed3ccc4cfc0efc7c462b261f8b72651837 data/roses/advancement/recipes/building_blocks/bamboo_chair.json
@@ -38,12 +38,14 @@ d99676d690c63cf19e3c8ba6e05e1bfb571dbb36 data/roses/advancement/recipes/building
 3f47410e7e12b05c8259fc2cf953db49d3eb9fbd data/roses/advancement/recipes/building_blocks/warped_table.json
 75fc868a5b2b8299a4b9b155561234890df071b2 data/roses/advancement/recipes/building_blocks/white_cloth.json
 10ce19a3d93c0b5eb7a1d19bd05ef49f434407b0 data/roses/advancement/recipes/building_blocks/yellow_cloth.json
-0617872fc2e74af9712701500e8195ccd7a27da4 data/roses/advancement/recipes/decorations/music_disc_magnetic_circuit.json
 507ef1a07bb4af825f6997cbd7790cf13da0587f data/roses/advancement/recipes/food/ruby_from_deepslate_from_blasting.json
 5d18b6fe9d719b66314f5dca7ab7ab04b2861dbe data/roses/advancement/recipes/food/ruby_from_deepslate_from_smelting.json
 1a2e586e029636a5a3a347398321e523c4cb2349 data/roses/advancement/recipes/food/ruby_from_ore_from_blasting.json
 11b500662827b3c96b12622f560bee3bc87f8c5f data/roses/advancement/recipes/food/ruby_from_ore_from_smelting.json
 e4fead7cd4c0f43bf3b1f6fc573d8370b2b5a0a0 data/roses/advancement/recipes/misc/cyan_dye_from_cyan_flower.json
+b1deefbb3df6ee4dd8cac732e33641f40b7d2601 data/roses/advancement/recipes/misc/music_disc_cat_from_music_disc_dog.json
+b2422730590a4e4b02b8a616aeda13937f4fa7a6 data/roses/advancement/recipes/misc/music_disc_dog.json
+0617872fc2e74af9712701500e8195ccd7a27da4 data/roses/advancement/recipes/misc/music_disc_magnetic_circuit.json
 8342787b9b870b50c71721cdf6721f77b554bafc data/roses/advancement/recipes/misc/red_dye_from_rose.json
 9f131b8eee34a4449d2cf76c5273b9d12ec5ab12 data/roses/advancement/recipes/misc/ruby.json
 14ba254821b16be158138261b6d5589c33180cec data/roses/advancement/recipes/redstone/cog.json
@@ -58,6 +60,7 @@ e45d5a22cf7e1d876509db77c0cb6ad28740e2e3 data/roses/recipe/birch_table.json
 6b89ef26e2ee81d31778dd557a9a1eff5f0a0d34 data/roses/recipe/cherry_chair.json
 1ceebf4d287265be34e75ac8fb6666d540025ac2 data/roses/recipe/cherry_table.json
 4701f815e59a99656d0eeb24ce46da5c4309a810 data/roses/recipe/cog.json
+b4805219223987630c65803d83022bd4035346d4 data/roses/recipe/copper_horn.json
 3f84c8b77c3f1e24f0736b96b46f94fad416b8f0 data/roses/recipe/crimson_chair.json
 4ee20aab7c6a2383478f39442171a7a7842f9d77 data/roses/recipe/crimson_table.json
 5c4cd53410f213b837a72067754890474964764d data/roses/recipe/cyan_cloth.json
@@ -72,6 +75,8 @@ e45d5a22cf7e1d876509db77c0cb6ad28740e2e3 data/roses/recipe/birch_table.json
 8a516b180a218c298dd7fdabd8a91c1f13a4f642 data/roses/recipe/magenta_cloth.json
 5abfdf8f6e8795105a00057390826a2d236b7df1 data/roses/recipe/mangrove_chair.json
 d4b0bb6f83712d65c226eaf84377f7a77190c44b data/roses/recipe/mangrove_table.json
+192f1d34aa89944e79e306dba67c14b17a16bf4c data/roses/recipe/music_disc_cat_from_music_disc_dog.json
+e5995cd186aad821f40af90ba020e0ab5fc228a3 data/roses/recipe/music_disc_dog.json
 00123e7665af8352e7313782cf355b54c9e90e3f data/roses/recipe/music_disc_magnetic_circuit.json
 34e6908a205c74c014349f9ff04e22f498e4595d data/roses/recipe/oak_chair.json
 2f6d170ddd0a393d9859dec2b5c8f97005335bda data/roses/recipe/oak_table.json

@@ -21,7 +21,7 @@ public class RosesFabricMod implements ModInitializer {
         RosesMod.onInitialize(simpleRegistries);
         FabricRegister.register(simpleRegistries.toArray(SimpleRegistry[]::new));
 
-        SculkSensorFrequencyRegistry.register(RosesGameEvents.COG_RUMBLES.get(), 10);
+        SculkSensorFrequencyRegistry.register(RosesGameEvents.COG_RUMBLES.getKey(), 10);
 
         BiomeModifications.addFeature(BiomeSelectors.tag(RosesBiomeTags.HAS_CYAN_FLOWER), GenerationStep.Decoration.VEGETAL_DECORATION, RosesPlacedFeatures.CYAN_FLOWER_PATCH);
         BiomeModifications.addFeature(BiomeSelectors.tag(RosesBiomeTags.HAS_ROSE), GenerationStep.Decoration.VEGETAL_DECORATION, RosesPlacedFeatures.ROSE_PATCH);

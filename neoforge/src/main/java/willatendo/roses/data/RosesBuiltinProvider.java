@@ -4,7 +4,6 @@ import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.RegistrySetBuilder;
-import net.minecraft.core.RegistrySetBuilder.RegistryBootstrap;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -26,7 +25,7 @@ import java.util.Collections;
 import java.util.concurrent.CompletableFuture;
 
 public class RosesBuiltinProvider extends DatapackBuiltinEntriesProvider {
-    private static final RegistrySetBuilder BUILDER = new RegistrySetBuilder().add(Registries.CONFIGURED_FEATURE, (RegistryBootstrap) RosesConfiguredFeatures::bootstrap).add(Registries.PLACED_FEATURE, (RegistryBootstrap) RosesPlacedFeatures::bootstrap).add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, RosesBuiltinProvider::bootstrapBiomeModifiers).add(Registries.JUKEBOX_SONG, RosesJukeboxSongs::bootstrap);
+    private static final RegistrySetBuilder BUILDER = new RegistrySetBuilder().add(Registries.CONFIGURED_FEATURE, RosesConfiguredFeatures::bootstrap).add(Registries.PLACED_FEATURE, RosesPlacedFeatures::bootstrap).add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, RosesBuiltinProvider::bootstrapBiomeModifiers).add(Registries.JUKEBOX_SONG, RosesJukeboxSongs::bootstrap);
 
     public RosesBuiltinProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> registries, String modId) {
         super(packOutput, registries, BUILDER, Collections.singleton(modId));

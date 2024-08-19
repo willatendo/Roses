@@ -1,4 +1,4 @@
-// 1.21	2024-06-20T16:31:31.6167896	Item Models: roses
+// 1.21	2024-06-21T11:56:40.2383535	Item Models: roses
 1aa4df15083d94dc9425eb650560203c506be9a7 assets/roses/models/item/acacia_chair.json
 4cfb55fc375579cf84737732309eb3f38941a9ed assets/roses/models/item/acacia_table.json
 da11b7798711ca35628f8e65956003245d1fb0e9 assets/roses/models/item/bamboo_chair.json
@@ -10,6 +10,7 @@ d2c9c957af3c3b21bf665a3241a78768f8489e04 assets/roses/models/item/chartreuse_clo
 4f57058758fe440c88c11b03001ebdb6d9d7b4e9 assets/roses/models/item/cherry_chair.json
 a5d886a17de4fdb245d1dbf5313f8a558d117389 assets/roses/models/item/cherry_table.json
 7223e2a4d54adeac42d1a6aa8e01dec79247c4c3 assets/roses/models/item/cog.json
+53bce751347ccce479c9f48bf6ca0b38f3e36195 assets/roses/models/item/copper_horn.json
 2a43339b492eb31043b462669447e0bcc9e20ab8 assets/roses/models/item/crimson_chair.json
 b7471e844339d6eca9d8aab9a2068ebdb35c0162 assets/roses/models/item/crimson_table.json
 f733bc740a750dfe14e832874f5b5be03a07de7a assets/roses/models/item/cyan_cloth.json
@@ -25,6 +26,7 @@ d33faf35725e54ecb9c3622b70d624934ff27c96 assets/roses/models/item/light_gray_clo
 809515efbdb77cf814227a55d5c05678f53fa8c1 assets/roses/models/item/magenta_cloth.json
 9afa2388b5463d5d31db218f5738ac693042ad16 assets/roses/models/item/mangrove_chair.json
 6e7c8882ce5b3afedb47980a70a921f912ad6ac6 assets/roses/models/item/mangrove_table.json
+1c905ffb16529d601bd467cc9a7c16db3b4cf813 assets/roses/models/item/music_disc_dog.json
 c13eb2919612ac66f20be392ffe68c2a047e47e9 assets/roses/models/item/music_disc_magnetic_circuit.json
 c2bbd7329a6bd0750c5fcfe139c8495e502f3799 assets/roses/models/item/oak_chair.json
 8c27f384a98e0e1934d87209c3e90e2e4424fe49 assets/roses/models/item/oak_table.json

@@ -8,11 +8,12 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.JukeboxSong;
-import willatendo.roses.client.sound.RosesSounds;
+import willatendo.roses.server.sound.RosesSoundEvents;
 import willatendo.roses.server.util.RosesUtils;
 
 public class RosesJukeboxSongs {
     public static final ResourceKey<JukeboxSong> MAGNETIC_CIRCUIT = create("magnetic_circuit");
+    public static final ResourceKey<JukeboxSong> DOG = create("dog");
 
     public static ResourceKey<JukeboxSong> create(String name) {
         return ResourceKey.create(Registries.JUKEBOX_SONG, RosesUtils.resource(name));
@@ -23,6 +24,7 @@ public class RosesJukeboxSongs {
     }
 
     public static void bootstrap(BootstrapContext<JukeboxSong> bootstrapContext) {
-        register(bootstrapContext, RosesJukeboxSongs.MAGNETIC_CIRCUIT, RosesSounds.MAGNETIC_CIRCUIT, 193, 1);
+        register(bootstrapContext, RosesJukeboxSongs.MAGNETIC_CIRCUIT, RosesSoundEvents.MAGNETIC_CIRCUIT, 193, 1);
+        register(bootstrapContext, RosesJukeboxSongs.DOG, RosesSoundEvents.DOG, 143, 2);
     }
 }

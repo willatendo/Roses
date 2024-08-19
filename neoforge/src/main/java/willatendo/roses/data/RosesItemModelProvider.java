@@ -15,6 +15,8 @@ public class RosesItemModelProvider extends SimpleItemModelProvider {
     protected void registerModels() {
         this.basicItem(RosesItems.RUBY.get());
         this.basicItem(RosesItems.MUSIC_DISC_MAGNETIC_CIRCUIT.get());
+        this.basicItem(RosesItems.MUSIC_DISC_DOG.get());
+        this.basicItem(RosesItems.COPPER_HORN.get());
         this.basicItem(RosesBlocks.ROSE.get().asItem(), this.modLoc("block/rose"));
         this.basicItem(RosesBlocks.CYAN_FLOWER.get().asItem(), this.modLoc("block/cyan_flower"));
         this.basicBlock(RosesBlocks.CAPRI_CLOTH.get());

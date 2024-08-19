@@ -1,13 +1,178 @@
 {
-  "disc.sound.cog_rumbles": {
+  "block.sound.cog_rumbles": {
     "sounds": [
       "roses:cog.rumbles"
     ],
     "subtitle": "sound.roses.cog_rumbles"
   },
+  "disc.sound.dog": {
+    "sounds": [
+      "roses:disc.sound.dog"
+    ]
+  },
   "disc.sound.magnetic_circuit": {
     "sounds": [
       "roses:disc.sound.magnetic_circuit"
+    ]
+  },
+  "item.copper_horn.sound.bass.0": {
+    "sounds": [
+      "roses:item.copper_horn.sound.bass.0"
+    ]
+  },
+  "item.copper_horn.sound.bass.1": {
+    "sounds": [
+      "roses:item.copper_horn.sound.bass.1"
+    ]
+  },
+  "item.copper_horn.sound.bass.2": {
+    "sounds": [
+      "roses:item.copper_horn.sound.bass.2"
+    ]
+  },
+  "item.copper_horn.sound.bass.3": {
+    "sounds": [
+      "roses:item.copper_horn.sound.bass.3"
+    ]
+  },
+  "item.copper_horn.sound.bass.4": {
+    "sounds": [
+      "roses:item.copper_horn.sound.bass.4"
+    ]
+  },
+  "item.copper_horn.sound.bass.5": {
+    "sounds": [
+      "roses:item.copper_horn.sound.bass.5"
+    ]
+  },
+  "item.copper_horn.sound.bass.6": {
+    "sounds": [
+      "roses:item.copper_horn.sound.bass.6"
+    ]
+  },
+  "item.copper_horn.sound.bass.7": {
+    "sounds": [
+      "roses:item.copper_horn.sound.bass.7"
+    ]
+  },
+  "item.copper_horn.sound.bass.8": {
+    "sounds": [
+      "roses:item.copper_horn.sound.bass.8"
+    ]
+  },
+  "item.copper_horn.sound.bass.9": {
+    "sounds": [
+      "roses:item.copper_horn.sound.bass.9"
+    ]
+  },
+  "item.copper_horn.sound.call.0": {
+    "sounds": [
+      "roses:item.copper_horn.sound.call.0"
+    ]
+  },
+  "item.copper_horn.sound.call.1": {
+    "sounds": [
+      "roses:item.copper_horn.sound.call.1"
+    ]
+  },
+  "item.copper_horn.sound.call.2": {
+    "sounds": [
+      "roses:item.copper_horn.sound.call.2"
+    ]
+  },
+  "item.copper_horn.sound.call.3": {
+    "sounds": [
+      "roses:item.copper_horn.sound.call.3"
+    ]
+  },
+  "item.copper_horn.sound.call.4": {
+    "sounds": [
+      "roses:item.copper_horn.sound.call.4"
+    ]
+  },
+  "item.copper_horn.sound.call.5": {
+    "sounds": [
+      "roses:item.copper_horn.sound.call.5"
+    ]
+  },
+  "item.copper_horn.sound.call.6": {
+    "sounds": [
+      "roses:item.copper_horn.sound.call.6"
+    ]
+  },
+  "item.copper_horn.sound.call.7": {
+    "sounds": [
+      "roses:item.copper_horn.sound.call.7"
+    ]
+  },
+  "item.copper_horn.sound.call.8": {
+    "sounds": [
+      "roses:item.copper_horn.sound.call.8"
+    ]
+  },
+  "item.copper_horn.sound.call.9": {
+    "sounds": [
+      "roses:item.copper_horn.sound.call.9"
+    ]
+  },
+  "item.copper_horn.sound.melody.0": {
+    "sounds": [
+      "roses:item.copper_horn.sound.melody.0"
+    ]
+  },
+  "item.copper_horn.sound.melody.1": {
+    "sounds": [
+      "roses:item.copper_horn.sound.melody.1"
+    ]
+  },
+  "item.copper_horn.sound.melody.2": {
+    "sounds": [
+      "roses:item.copper_horn.sound.melody.2"
+    ]
+  },
+  "item.copper_horn.sound.melody.3": {
+    "sounds": [
+      "roses:item.copper_horn.sound.melody.3"
+    ]
+  },
+  "item.copper_horn.sound.melody.4": {
+    "sounds": [
+      "roses:item.copper_horn.sound.melody.4"
+    ]
+  },
+  "item.copper_horn.sound.melody.5": {
+    "sounds": [
+      "roses:item.copper_horn.sound.melody.5"
+    ]
+  },
+  "item.copper_horn.sound.melody.6": {
+    "sounds": [
+      "roses:item.copper_horn.sound.melody.6"
+    ]
+  },
+  "item.copper_horn.sound.melody.7": {
+    "sounds": [
+      "roses:item.copper_horn.sound.melody.7"
+    ]
+  },
+  "item.copper_horn.sound.melody.8": {
+    "sounds": [
+      "roses:item.copper_horn.sound.melody.8"
+    ]
+  },
+  "item.copper_horn.sound.melody.9": {
+    "sounds": [
+      "roses:item.copper_horn.sound.melody.9"
+    ]
+  },
+  "item.goat_horn.sound.call.8": {
+    "sounds": [
+      "roses:item.goat_horn.sound.call.8"
+    ]
+  },
+  "item.goat_horn.sound.call.9": {
+    "sounds": [
+      "roses:item.goat_horn.sound.call.9"
     ]
   }
 }
